@@ -1,0 +1,65 @@
+#    Mike F
+#    2024-08-03
+#    /home/mike/.ssh/config
+#    local ssh config file for my ubuntu machines
+#
+### default for all ###
+HostKeyAlgorithms = +ssh-rsa
+PubkeyAcceptedAlgorithms = +ssh-rsa
+
+
+### override per host ###
+
+# Personal BitBucket account
+Host bitbucket.org
+    Hostname bitbucket.org
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/BitBucket/bitbucket_personal_ed
+
+# Personal Github account
+Host github.com
+    Hostname github.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitHub/github_personal_ed
+
+# Personal Github account - alternate
+Host github.com-mkun
+    Hostname github.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitHub/github_moroboshi_ed
+
+# Professional Github account
+Host github.com-pro
+    Hostname github.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitHub/github_professional_ed
+
+# Personal GitLab account
+Host gitlab.com-p2
+    Hostname gitlab.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitLab/gitlab_personal_ed
+
+# Personal GitLab account - alternate
+Host gitlab.com
+    Hostname gitlab.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitLab/gitlab_animalchin_ed
+
+# Host git-codecommit.*.amazonaws.com
+#     User APKAUHMXMX2BM4VUIBKM
+#     AddKeysToAgent yes
+#     IdentitiesOnly yes
+#     IdentityFile ~/.ssh/AWS/work/mikef/aws-cc_rsa

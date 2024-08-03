@@ -1,0 +1,113 @@
+#    Mike F
+#    2020-05-27
+#    /home/mike/.ssh/config
+#    local ssh config file for ubuntu laptop
+#
+### default for all ###
+HostKeyAlgorithms = +ssh-rsa
+PubkeyAcceptedAlgorithms = +ssh-rsa
+
+
+### override per host ###
+Host devstar
+	Hostname 10.4.19.92 
+	User mike
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+	IdentityFile /home/mike/.ssh/default/default_ed
+
+Host dev1.server.justaddpower
+	Hostname 10.4.19.77 
+	User dev
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+	IdentityFile /home/mike/.ssh/id_ed25519
+  
+Host c360.server.justaddpower
+	Hostname 10.4.19.48 
+	User mikef
+  AddKeysToAgent yes
+  IdentitiesOnly yes
+	IdentityFile /home/mike/.ssh/id_ed25519
+
+# Host c360.server.justaddpower
+# 	Hostname 10.4.19.48 
+# 	User ansible
+#   AddKeysToAgent yes
+#   IdentitiesOnly yes
+# 	IdentityFile /home/mike/.ssh/Ansible/ansible_rsa
+
+# Personal BitBucket account
+Host bitbucket.org
+    Hostname bitbucket.org
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/BitBucket/bitbucket_personal_ed
+
+# Work BitBucket account
+Host bitbucket.org-work
+    Hostname bitbucket.org
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/BitBucket/bitbucket_work_ed
+
+# Just Add Power Workspace BitBucket Account
+Host bitbucket.org-workspace
+    Hostname bitbucket.org
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/BitBucket/bitbucket_workspace_ed
+
+# Personal Github account
+Host github.com
+    Hostname github.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitHub/github_personal_ed
+
+# Personal Github account - alternate
+Host github.com-mkun
+    Hostname github.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitHub/github_moroboshi_ed
+# Professional Github account
+Host github.com-pro
+    Hostname github.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitHub/github_professional_ed
+
+# Personal GitLab account
+Host gitlab.com-p2
+    Hostname gitlab.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitLab/gitlab_personal_ed
+
+Host gitlab.com
+    Hostname gitlab.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitLab/gitlab_animalchin_ed
+
+Host simple-help
+    Hostname ec2-54-213-132-62.us-west-2.compute.amazonaws.com
+    User ec2-user
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/AWS/admin-access.pem
+
+Host git-codecommit.*.amazonaws.com
+    User APKAUHMXMX2BM4VUIBKM
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/AWS/work/mikef/aws-cc_rsa
