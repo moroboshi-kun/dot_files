@@ -1,0 +1,96 @@
+#======================================#
+
+## file: bash_aliases
+## name: mike 
+## date: 2020-06-25
+## os: Ubuntu 22.04
+
+#======================================#
+
+
+#############################
+## ... command aliases ... ##
+#############################
+
+alias bat='batcat'
+alias vim='lvim'
+alias ppy='ptpython'
+alias bpy='bpython'
+alias t1='tree -L 1'
+alias t2='tree -L 2'
+alias t3='tree -L 3'
+alias ip='ip -c'
+alias lg='lazygit'
+alias ida='~/bin/idafree-8.4/ida64'
+alias unity='/home/mike/bin/install_unity.sh'
+
+#########################
+## ... git aliases ... ##
+#########################
+
+alias gt='git'
+alias got='git'
+
+
+###########################
+## ... admin aliases ... ##
+###########################
+
+
+#########################
+## ... aws aliases ... ##
+#########################
+
+alias awsdev='export AWS_PROFILE=devuser'
+alias awsadmin='export AWS_PROFILE=admin'
+alias nonone='export AWS_PROFILE='
+alias awsdef='export AWS_PROFILE=default'
+
+
+#########################
+## ... ssh aliases ... ##
+#########################
+
+
+############################
+## ... docker aliases ... ##
+############################
+
+# docker image
+
+alias dils='docker image ls'
+alias dirm='docker image rm'
+alias dins='docker image inspect'
+
+# docker network
+
+alias dnls='docker network ls'
+alias dncr='docker network create'
+alias dnrm='docker network rm'
+alias dnns='docker network inspect'
+
+# docker ps
+
+alias dpsa='docker ps -a'
+alias dprm='docker rm'
+
+# docker pull
+
+alias dpll='docker pull'
+
+# docker search
+
+alias dsrc='docker search'
+alias dsro='docker search -f is-official=true'
+
+
+#############################
+## ... vagrant aliases ... ##
+#############################
+
+alias vgin='vagrant init'
+alias vgup='vagrant up'
+alias vgssh='vagrant ssh'
+alias vght='vagrant halt'
+alias vgds='vagrant destroy'
+alias vgst='vagrant status'

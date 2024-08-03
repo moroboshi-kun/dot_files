@@ -1,0 +1,16 @@
+# Mike Furtado
+# 04-26-2020
+# .bash_aliases
+# CentOS 7 lab Server specific bash aliases
+
+# documentation aliases
+alias kdoc='cd /usr/share/doc/kernel-doc-$(uname -r | cut -d- -f1)/Documentation/'
+alias kdoc-sys='cd /usr/share/doc/kernel-doc-$(uname -r | cut -d- -f1)/Documentation/sysctl'
+alias kdoc-net='cd /usr/share/doc/kernel-doc-$(uname -r | cut -d- -f1)/Documentation/networking'
+alias kdoc-bp='less /usr/share/doc/kernel-doc-$(uname -r | cut -d- -f1)/Documentation/kernel-parameters.txt'
+
+# command alaises
+alias lh='ls -lhF'
+
+# testing and troubleshooting aliases
+alias testdisk='dd if=/dev/zero of=/home/mike/imagefile bs=1M count=1024'
