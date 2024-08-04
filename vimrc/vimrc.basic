@@ -1,0 +1,104 @@
+" ======================================
+"
+" Name: Mike Furtado
+" Date: 2024-08-04
+" Filename: .vimrc
+"
+" ======================================
+
+" ==========================
+" ----- BASIC SETTINGS -----
+" ==========================
+
+" Set the encoding to UTF-8
+set encoding=utf-8
+
+" Enable syntax highlighting
+syntax on
+
+" Set line numbers
+set number
+
+" Enable relative line numbers
+set relativenumber
+
+" Highlight search results
+set hlsearch
+
+" Incremental search
+set incsearch
+
+" Enable line wrapping
+set wrap
+
+" Set tab and indentation settings
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Enable auto-indentation
+set autoindent
+set smartindent
+
+" Show matching parentheses
+set showmatch
+
+"visual autocomplete for command menu
+set wildmenu
+
+" Disable swap file
+set noswapfile
+
+" Set the status line
+set laststatus=2
+
+" Enable mouse support
+set mouse=a
+
+" Enable visual mode for text selection
+set visualbell
+
+" Set the color scheme
+colorscheme elflord
+
+" Configure clipboard to use the system clipboard
+set clipboard=unnamedplus
+
+"map leader to comma
+let mapleader=","	
+
+" map jk to escape to make it easier to jump to command mode
+inoremap jk <esc>
+
+" =============================
+" ----- FILETYPE SETTINGS -----
+" =============================
+
+" File type-specific settings
+" Detect file type and load file type plugins and indentation rules
+filetype plugin indent on
+
+" Example: Set specific settings for Python files
+autocmd FileType python setlocal tabstop=4 shiftwidth=4 expandtab
+
+" Example: Set specific settings for Makefiles (use tabs)
+autocmd FileType make setlocal noexpandtab
+
+" Example: Set specific settings for JavaScript files
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab
+
+" Example: Set specific settings for HTML files
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 expandtab
+
+" Set specific settings for C files
+autocmd FileType c setlocal tabstop=4 shiftwidth=4 expandtab
+
+" Set specific settings for C header files
+autocmd FileType h setlocal tabstop=4 shiftwidth=4 expandtab
+
+" Set specific settings for YAML files
+autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 expandtab
+
+" Set specific settings for YML files
+autocmd FileType yml setlocal tabstop=2 shiftwidth=2 expandtab
+
