@@ -1,0 +1,32 @@
+# Mike Furtado
+# 11-7-2019
+# .tmux.conf - tmux configuration file
+
+## reload configuration file
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+## moving between panes
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+## disable mouse support
+set -g mouse off
+
+## configuring colors
+# set default terminal to 256 color mode
+set -g default-terminal "screen-256color"
+
+## changing pane appearance
+# color for pane borders
+setw -g pane-border-style fg=green,bg=black
+setw -g pane-active-border-style fg=white,bg=yellow
+
+# changing pane focus
+setw -g window-style fg=colour240,bg=colour235
+setw -g window-active-style fg=white,bg=black
+
+# adding for powerline functionality
+set -g default-terminal "screen-256color"
+source "/usr/share/powerline/bindings/tmux/powerline.conf"
