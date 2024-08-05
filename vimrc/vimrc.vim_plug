@@ -114,11 +114,28 @@ endif
 
 call plug#begin('~/.vim/plugged')
 " list plugins here
+
 "Plug 'tpope/vim-sensible'
 
 "Plug 'tpope/vim-surround'
+
+"Plug 'drewtempelmeyer/palenight.vim'
 
 "Plug 'itchyny/lightline.vim'h
 
 " Initialize vim-plug
 call plug#end()
+
+" =========================
+" ----- PLUGIN CONFIG -----
+" =========================
+
+" lightline plugin settings
+" let g:lightline = {
+"       \ 'colorscheme': 'wombat',
+"       \ }
+
+" palenight colorscheme settings
+" set background=dark
+" colorscheme palenight
+" let g:lightline = { 'colorscheme': 'palenight' }
