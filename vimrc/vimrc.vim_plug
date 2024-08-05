@@ -139,3 +139,6 @@ call plug#end()
 " set background=dark
 " colorscheme palenight
 " let g:lightline = { 'colorscheme': 'palenight' }
+" if (has("termguicolors))
+"   set termguicolors
+" endif
