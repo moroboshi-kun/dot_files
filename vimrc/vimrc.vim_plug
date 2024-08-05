@@ -116,5 +116,9 @@ call plug#begin('~/.vim/plugged')
 " list plugins here
 "Plug 'tpope/vim-sensible'
 
+"Plug 'tpope/vim-surround'
+
+"Plug 'itchyny/lightline.vim'h
+
 " Initialize vim-plug
 call plug#end()
