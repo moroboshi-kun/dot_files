@@ -112,8 +112,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+call plug#begin('~/.vim/plugged')
 " list plugins here
 "Plug 'tpope/vim-sensible'
 
 " Initialize vim-plug
-call plug#begin('~/.vim/plugged')
+call plug#end()
