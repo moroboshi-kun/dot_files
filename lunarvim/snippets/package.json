@@ -1,0 +1,23 @@
+{
+  "name": "nvim-snippets",
+  "author": "Mike Furtado",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "python",
+        "path": "./python.json"
+      },
+      {
+        "language": "make",
+        "path": "./make.json"
+      },
+      {
+        "language": "c",
+        "path": "./c.json"
+      }
+    ]
+  }
+}

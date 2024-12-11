@@ -1,0 +1,35 @@
+{
+  "hello": {
+    "prefix": "hello",
+    "body": ["print('Hello, World!')"],
+    "description": "print Hello, World!"
+  },
+  "rule": {
+    "prefix": "rule",
+    "body": [
+      "${1:target(s)}: $2",
+      "\t${3:command}"
+    ],
+    "description": "regular rule"
+  },
+  "compiler": {
+    "prefix": "cc",
+    "body": ["CC = ${1:compiler}"],
+    "description": "implicit rule: CC"
+  },
+  "compiler flags": {
+    "prefix": "cf",
+    "body": ["CFLAGS = ${1:cflags}"],
+    "description": "implicit rule: CFLAGS"
+  },
+  "linker flags": {
+    "prefix": "ld",
+    "body": ["LDFLAGS = ${1:ldflags}"],
+    "description": "implicit rule: LDFLAGS"
+  },
+  "object files": {
+    "prefix": "ob",
+    "body": ["OBJECTS = ${1:objects}"],
+    "description": "list of object files"
+  }
+}

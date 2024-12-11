@@ -1,0 +1,7 @@
+[user]
+  name = onsokumaru
+  email = ''
+  signingkey = ''
+[commit]
+  gpgsign = true
+

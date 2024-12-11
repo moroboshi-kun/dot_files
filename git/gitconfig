@@ -1,0 +1,55 @@
+## ----- global .gitconfig ----- ##
+[init]
+  defaultBranch = main
+
+[gpg]
+  program = gpg
+
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+
+[includeIF "gitdir:~/code/repos/github/onsokumaru/"]
+  path = ~/.config/git/gitconfig-gh-onsokumaru
+
+[includeIF "gitdir:~/code/repos/github/moroboshi/"]
+  path = ~/.config/git/gitconfig-gh-moroboshi
+
+[includeIF "gitdir:~/code/repos/gitlab/moroboshi/"]
+  path = ~/.config/git/gitconfig-gl-moroboshi
+
+[includeIF "gitdir:~/code/repos/gitlab/work/"]
+  path = ~/.config/git/gitconfig-gl-work
+
+[includeIF "gitdir:~/code/repos/bitbucket/work/"]
+  path = ~/.config/git/gitconfig-bb-work
+
+[core]
+  editor = /home/mike/.local/bin/lvim
+
+[alias]
+	gl = config --global -l
+	co = checkout
+	cob = checkout -b
+	br = branch
+	ci = commit
+	cm = commit -m
+	st = status
+	lo = log --oneline -n 10
+
+[difftool]
+    prompt = true
+[diff]
+    tool = 'lvim -d'
+[difftool "lvimdiff"]
+    cmd = "lvim -d \"$LOCAL\" \"$REMOTE\""
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

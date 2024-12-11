@@ -1,0 +1,8 @@
+[user]
+  name = Mike Furtado
+  email = mike@justaddpower.com
+  signingkey = ''
+[commit]
+  gpgsign = true
+[url "git@bitbucket.org-work"]
+  insteadOf = git@bitbucket.org

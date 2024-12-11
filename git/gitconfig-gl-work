@@ -1,0 +1,8 @@
+[user]
+  name = mike811
+  email = 24875253-mike811@users.noreply.gitlab.com
+  signingkey = ''
+[commit]
+  gpgsign = false
+[url "git@gitlab.com-work"]
+  insteadOf = git@gitlab.com

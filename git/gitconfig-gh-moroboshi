@@ -1,0 +1,8 @@
+[user]
+  name = moroboshi-kun
+  email = 166547588+moroboshi-kun@users.noreply.github.com
+  signingkey = ''
+[commit]
+  gpgsign = true
+[url "git@github.com-mkun"]
+  insteadOf = git@github.com

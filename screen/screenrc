@@ -1,0 +1,34 @@
+# -----------------------
+# File: .screenrc
+# Date: 2024-12-06
+# -----------------------
+
+# Set a meaningful hardstatus line
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %H ] %{= kw}%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<'
+
+# Enable visual bell
+vbell on
+
+# Set default scrollback buffer size
+defscrollback 5000
+
+# Start a status line at the bottom
+caption always "%{= kw}%-Lw%{= bw}%n*%t%{-}%+Lw%<"
+
+# Bind a key to list all windows
+bindkey ^A ? windowlist -b
+
+# Disable the startup message
+startup_message off
+
+# Set the shell to bash if not already the default
+shell /bin/bash
+
+# Automatically detach on hangup
+autodetach on
+
+# Improve UTF-8 handling
+defutf8 on
+utf8 on
+
