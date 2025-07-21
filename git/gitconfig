@@ -19,6 +19,12 @@
 [includeIF "gitdir:~/code/repos/github/moroboshi/"]
   path = ~/.config/git/gitconfig-gh-moroboshi
 
+[includeIF "gitdir:~/code/repos/github/moroboshi/collections/ansible_collections/"]
+  path = ~/.config/git/gitconfig-gh-moroboshi
+
+[includeIF "gitdir:~/code/repos/github/work/"]
+  path = ~/.config/git/gitconfig-gh-work
+
 [includeIF "gitdir:~/code/repos/gitlab/moroboshi/"]
   path = ~/.config/git/gitconfig-gl-moroboshi
 
