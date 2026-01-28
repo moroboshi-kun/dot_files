@@ -1,0 +1,38 @@
+# ==========================================================
+#
+# File: .bash_functions
+# Date: 2026-01-22
+# Description: File to store bash function for use in shell
+#              source from .bashrc
+#
+# ==========================================================
+
+# ======================= #
+## ... AWS Functions ... ##
+# ======================= #
+
+# get running instances Instance ID, name, private and public IP, and instance type
+
+aws-running-instances() {
+  aws ec2 describe-instances \
+    --filters "Name=instance-state-name,Values=running" \
+    --query 'Reservations[*].Instances[*].{
+      Instance: InstanceId,
+      Name: Tags[?Key==`Name`]|[0].Value,
+      PrivateIP: PrivateIpAddress,
+      PublicIP: PublicIpAddress,
+      Type: InstanceType
+    }' \
+    --output table
+}
+
+aws-available-vpcs() {
+  aws ec2 describe-vpcs \
+    --filters "Name=state,Values=available" \
+    --query 'Vpcs[*].{
+      VpcID: VpcId,
+      Name: Tags[?Key==`Name`]|[0].Value,
+      CidrBlock: CidrBlock
+    }' \
+    --output table
+}
