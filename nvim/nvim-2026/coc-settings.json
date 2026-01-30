@@ -1,0 +1,85 @@
+{
+  // ====================
+  // Completion behavior
+  // ====================
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true,
+  "suggest.minTriggerInputLength": 1,
+  "suggest.timeout": 500,
+
+  // ====================
+  // Coc core
+  // ====================
+  "coc.preferences.useQuickfixForLocations": true,
+
+  // ====================
+  // Diagnostics
+  // ====================
+  "diagnostic.displayByAle": false,
+  "diagnostic.enable": true,
+  "diagnostic.virtualText": true,
+
+  // ====================
+  // Python
+  // ====================
+  "python.formatting.provider": "black",
+
+  // ====================
+  // Ruby / Solargraph
+  // ====================
+  "solargraph.useBundler": true,
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": false,
+
+  // ====================
+  // YAML
+  // ====================
+  "yaml.validate": true,
+  "yaml.hover": true,
+  "yaml.completion": true,
+  "yaml.schemaStore.enable": true,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "/*workflow*/.yml",
+    "https://json.schemastore.org/kustomization.json": "kustomization.yaml",
+    "https://json.schemastore.org/docker-compose.json": [
+      "docker-compose.yml",
+      "docker-compose.yaml",
+      "compose.yml",
+      "compose.yaml"
+    ]
+  },
+
+  // ====================
+  // Docker
+  // ====================
+  "docker.enable": true,
+
+  // ====================
+  // FORMAT ON SAVE (language-scoped)
+  // ====================
+  "[python]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[go]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[terraform]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[javascript]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[typescript]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[json]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[yaml]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[sh]": {
+    "coc.preferences.formatOnSave": true
+  }
+}
+
