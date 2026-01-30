@@ -1,0 +1,126 @@
+" ===========================================
+" File: .vimrc
+" Date: 2026-01-29
+" Description: Vim configuration file
+" ===========================================
+"
+" -----------------------
+" Basic UI & Behavior
+" -----------------------
+set number              " Show absolute line numbers
+set relativenumber      " Show relative line numbers
+set cursorline
+set laststatus=2
+
+let mapleader = " "
+
+" -----------------------
+" Tabs & Indentation
+" -----------------------
+set expandtab           " Convert tabs to spaces
+set tabstop=4           " Number of spaces that a <Tab> counts for
+set shiftwidth=4        " Number of spaces to use for each indent
+set softtabstop=4       " Number of spaces when pressing <Tab> in insert mode
+set autoindent          " Copy indent from current line
+set smartindent         " Smart autoindenting on new lines
+
+" -----------------------
+" Syntax and Filetypes
+" -----------------------
+syntax on               " Enable syntax highlighting
+filetype plugin indent on " Enable filetype-based plugins and indentation
+
+" -----------------------
+" Appearance (optional)
+" -----------------------
+set termguicolors       " Enable true color support
+set background=dark     " Use dark background (for dark themes)
+"colorscheme elflord     " Set in Theme Configurations settings
+
+" -----------------------
+" Install Vim-Plug - if not found
+" -----------------------
+
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" -----------------------
+" Plugins to install 
+" -----------------------
+
+call plug#begin('~/.vim/plugged')
+
+ Plug 'itchyny/lightline.vim'
+
+ Plug 'drewtempelmeyer/palenight.vim'
+
+ Plug 'tpope/vim-fugitive'
+
+ Plug 'scrooloose/nerdtree'
+
+ Plug 'ryanoasis/vim-devicons'
+
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+" *** Plugin Configurations ***
+
+" -----------------------
+" Lightline Configuration 
+" -----------------------
+let g:lightline = { 'colorscheme': 'wombat',}
+      
+
+" -----------------------
+" Theme Configuration 
+" -----------------------
+colorscheme palenight
+
+" -----------------------
+" NERDtree Configuration 
+" -----------------------
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" -----------------------
+" CoC Configuration 
+" -----------------------
+
+" Use <Tab> and <S-Tab> to navigate popup menu
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Accept completion with <Enter>
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
+
+" Trigger completion manually
+inoremap <silent><expr> <C-Space> coc#refresh()
+
+" Go to definition, type, implementation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Show documentation (hover)
+nnoremap <silent> K :call CocActionAsync('doHover')<CR>
+
+" Rename symbol
+nmap <leader>rn <Plug>(coc-rename)
+
+" Format current buffer
+nmap <leader>f :call CocAction('format')<CR>
+
+" Code actions (e.g., quickfix, refactor)
+nmap <leader>ac  <Plug>(coc-codeaction)
+xmap <leader>ac  <Plug>(coc-codeaction-selected)
+
+" Diagnostic navigation
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
