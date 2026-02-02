@@ -63,7 +63,7 @@ call plug#begin('~/.vim/plugged')
 
  Plug 'ryanoasis/vim-devicons'
 
- Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ Plug 'neoclide/coc.nvim', {'branch': 'release'} "vim version must be >= 9.0.0438
 
 call plug#end()
 
