@@ -1,0 +1,20 @@
+{
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true,
+  "suggest.minTriggerInputLength": 1,
+  "suggest.timeout": 500,
+  "coc.preferences.useQuickfixForLocations": true,
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "json", "yaml", "python", "go", "terraform"],
+  "diagnostic.displayByAle": false,
+  "diagnostic.enable": true,
+  "diagnostic.virtualText": true,
+  "diagnostic.signOffset": 9999,
+  "python.formatting.provider": "black",
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "/*workflow*/.yml",
+    "https://json.schemastore.org/kustomization.json": "kustomization.yaml"
+  },
+  "terraform.languageServer.command": "terraform-ls",
+  "terraform.languageServer.args": ["serve"]
+}
+
