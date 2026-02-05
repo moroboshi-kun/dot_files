@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-TEMPLATE_DIR="/home/mike/Templates/terraform-bootstrap"
+TEMPLATE_DIR="/home/mike/Templates/tf-init"
 
 FILES=(
   main.tf
