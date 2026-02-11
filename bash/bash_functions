@@ -3,7 +3,6 @@
 # File: .bash_functions
 # Date: 2026-01-22
 # Description: File to store bash function for use in shell
-#              source from .bashrc
 #
 # ==========================================================
 
@@ -26,6 +25,8 @@ aws-running-instances() {
     --output table
 }
 
+# get CidrBlock, Name, and VpcId of available VPCs
+
 aws-available-vpcs() {
   aws ec2 describe-vpcs \
     --filters "Name=state,Values=available" \
@@ -34,5 +35,19 @@ aws-available-vpcs() {
       Name: Tags[?Key==`Name`]|[0].Value,
       CidrBlock: CidrBlock
     }' \
+    --output table
+}
+
+# get the Availability Zone and AZ ID of a specific instance
+
+ec2az() {
+  if [ -z "$1" ]; then
+    echo "Usage: ec2az <instance-id>"
+    return 1
+  fi
+
+  aws ec2 describe-instances \
+    --instance-ids "$1" \
+    --query 'Reservations[].Instances[].{AZ:Placement.AvailabilityZone, AZId:Placement.AvailabilityZoneId}' \
     --output table
 }
