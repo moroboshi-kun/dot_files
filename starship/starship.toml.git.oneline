@@ -10,12 +10,13 @@ format = "[$branch]($style) "
 style = "bold green"
 
 [git_status]
-format = "([$staged$modified$untracked$ahead_behind]($style) )"
+format = "([$staged$modified$untracked$stashed$ahead_behind]($style) )"
 style = "bold yellow"
 
 staged = "+$count "
 modified = "!$count "
 untracked = "?$count "
+stashed = "⚑ $count "
 
 ahead = "⇡$count "
 behind = "⇣$count "
@@ -29,5 +30,6 @@ format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bold red"
 
 [character]
-success_symbol ="➜  "
-error_symbol = "➜  "
+success_symbol = "[➜](bold green) "
+error_symbol = "[➜](bold red) "
+
