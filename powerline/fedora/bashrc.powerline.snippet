@@ -1,0 +1,9 @@
+# add for powerline status prompt
+# Add this before the powerline-daemon start command
+export PYTHONPATH="$PYTHONPATH:/home/mike/.local/lib/python3.14/site-packages"
+
+if [ -f /usr/share/powerline/bash/powerline.sh ]; then
+    powerline-daemon -q
+    . /usr/share/powerline/bash/powerline.sh
+fi
+
