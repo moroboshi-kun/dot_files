@@ -15,6 +15,13 @@
     "https://json.schemastore.org/kustomization.json": "kustomization.yaml"
   },
   "terraform.languageServer.command": "terraform-ls",
-  "terraform.languageServer.args": ["serve"]
+  "terraform.languageServer.args": ["serve"],
+  "languageserver": {
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile", "Dockerfile", "containerfile", "Containerfile"],
+      "args": ["--stdio"]
+    }
+  }
 }
 
