@@ -1,0 +1,53 @@
+## ----- global .gitconfig ----- ##
+[init]
+  defaultBranch = main
+
+[gpg]
+  program = gpg
+
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+
+[includeIF "gitdir:~/Development/github/onsokumaru/"]
+  path = ~/.config/git/gitconfig-gh-onsokumaru
+
+[includeIF "gitdir:~/Development/github/moroboshi/"]
+  path = ~/.config/git/gitconfig-gh-moroboshi
+
+[includeIF "gitdir:~/Development/github/moroboshi/collections/ansible_collections/"]
+  path = ~/.config/git/gitconfig-gh-moroboshi
+
+[includeIF "gitdir:~/Development/github/work/"]
+  path = ~/.config/git/gitconfig-gh-work
+
+[includeIF "gitdir:~/Development/gitlab/moroboshi/"]
+  path = ~/.config/git/gitconfig-gl-moroboshi
+
+[core]
+  editor = /home/mike/.local/bin/lvim
+
+[alias]
+	gl = config --global -l
+	co = checkout
+	cob = checkout -b
+	br = branch
+	ci = commit
+	cm = commit -m
+	st = status
+	lo = log --oneline -n 10
+
+[difftool]
+    prompt = true
+[diff]
+    tool = vimdiff
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
