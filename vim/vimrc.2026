@@ -38,6 +38,23 @@ set background=dark     " Use dark background (for dark themes)
 "colorscheme elflord     " Set in Theme Configurations settings
 
 " -----------------------
+" Configure Vimdiff
+" -----------------------
+set diffopt+=vertical   " Always use vertical splits for diffs
+
+set diffopt+=context:5  " Show more context around changes
+
+" set diffopt+=iwhite     " Ignore whitespace changes (optional but useful)
+
+set fillchars+=diff:\     " Make diffs look cleaner
+
+" Better highlighting
+highlight DiffAdd    cterm=bold ctermbg=22
+highlight DiffDelete cterm=bold ctermbg=52
+highlight DiffChange cterm=bold ctermbg=17
+highlight DiffText   cterm=bold ctermbg=19
+
+" -----------------------
 " Install Vim-Plug - if not found
 " -----------------------
 
@@ -57,6 +74,8 @@ call plug#begin('~/.vim/plugged')
 
  Plug 'drewtempelmeyer/palenight.vim'
 
+ Plug 'ghifarit53/tokyonight-vim'
+
  Plug 'tpope/vim-fugitive'
 
  Plug 'scrooloose/nerdtree'
@@ -64,6 +83,8 @@ call plug#begin('~/.vim/plugged')
  Plug 'ryanoasis/vim-devicons'
 
  Plug 'neoclide/coc.nvim', {'branch': 'release'} "vim version must be >= 9.0.0438
+ 
+ Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -78,7 +99,8 @@ let g:lightline = { 'colorscheme': 'wombat',}
 " -----------------------
 " Theme Configuration 
 " -----------------------
-colorscheme palenight
+let g:tokyonight_style = 'storm' " available: night, storm
+colorscheme tokyonight
 
 " -----------------------
 " NERDtree Configuration 
