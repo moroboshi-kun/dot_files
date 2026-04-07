@@ -1,0 +1,56 @@
+## ----- .bash_functions ----- ##
+
+imds() {
+  BASE="http://169.254.169.254/latest"
+  META="$BASE/meta-data"
+  DYNAMIC="$BASE/dynamic"
+
+  # Get or refresh token
+  get_token() {
+    curl -s -X PUT "$BASE/api/token" \
+      -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"
+  }
+
+  if [ -z "$TOKEN" ]; then
+    TOKEN=$(get_token)
+  fi
+
+  # Wrapper for curl with retry on 401
+  _curl() {
+    local url="$1"
+
+    response=$(curl -s -w "%{http_code}" \
+      -H "X-aws-ec2-metadata-token: $TOKEN" "$url")
+
+    body="${response::-3}"
+    code="${response: -3}"
+
+    if [ "$code" = "401" ]; then
+      TOKEN=$(get_token)
+      body=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" "$url")
+    fi
+
+    echo "$body"
+  }
+
+  case "$1" in
+    all)
+      _curl "$META/"
+      ;;
+
+    json)
+      _curl "$DYNAMIC/instance-identity/document" | jq .
+      ;;
+
+    "")
+      echo "Usage:"
+      echo "  imds <path>        # e.g. imds instance-id"
+      echo "  imds all           # list metadata keys"
+      echo "  imds json          # instance identity document (JSON)"
+      ;;
+
+    *)
+      _curl "$META/$1"
+      ;;
+  esac
+}
