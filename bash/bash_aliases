@@ -3,7 +3,7 @@
 ## file: bash_aliases
 ## name: mike 
 ## date: 2020-06-25
-## os: Ubuntu 22.04
+## last-updated: 2026-04-10
 
 #======================================#
 
@@ -13,16 +13,15 @@
 #############################
 
 alias bat='batcat'
-alias vim='lvim'
-alias ppy='ptpython'
-alias bpy='bpython'
+#alias ppy='ptpython'
+#alias bpy='bpython'
 alias t1='tree -L 1'
 alias t2='tree -L 2'
 alias t3='tree -L 3'
 alias ip='ip -c'
 alias lg='lazygit'
-alias ida='~/bin/idafree-8.4/ida64'
-alias unity='/home/mike/bin/install_unity.sh'
+#alias ida='~/bin/idafree-8.4/ida64'
+#alias unity='/home/mike/bin/install_unity.sh'
 
 #########################
 ## ... git aliases ... ##
@@ -41,7 +40,7 @@ alias got='git'
 ## ... aws aliases ... ##
 #########################
 
-alias awsdev='export AWS_PROFILE=devuser'
+alias awsmike='export AWS_PROFILE=mike'
 alias awsadmin='export AWS_PROFILE=admin'
 alias nonone='export AWS_PROFILE='
 alias awsdef='export AWS_PROFILE=default'
