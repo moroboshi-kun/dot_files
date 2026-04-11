@@ -1,0 +1,55 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi
+unset rc
+. "$HOME/.cargo/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# set Vim as EDITOR
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
+
+# enable starship prompt
+#eval "$(starship init bash)"
+
+# add for powerline status prompt
+# Add this before the powerline-daemon start command
+export PYTHONPATH="$PYTHONPATH:/home/mike/.local/lib/python3.14/site-packages"
+
+if [ -f /usr/share/powerline/bash/powerline.sh ]; then
+    powerline-daemon -q
+    . /usr/share/powerline/bash/powerline.sh
+fi
+
+# add AWS command completion
+complete -C "/usr/bin/aws_completer" aws
+
+# add kubectl command completion
+source <(kubectl completion bash)
+
+# enable autojump
+source /usr/share/autojump/autojump.bash
