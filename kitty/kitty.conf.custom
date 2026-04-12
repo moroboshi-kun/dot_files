@@ -1,0 +1,73 @@
+############################
+# Theme
+############################
+
+include tokyo_night_moon.conf
+
+
+############################
+# Font
+############################
+
+font_family      JetBrainsMono Nerd Font
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+font_size        12.5
+
+enable_ligatures yes
+
+
+############################
+# Appearance
+############################
+
+cursor_shape block
+cursor_blink_interval 0
+
+scrollback_lines 10000
+window_padding_width 10
+
+enable_audio_bell no
+copy_on_select yes
+
+
+############################
+# Performance
+############################
+
+repaint_delay 10
+input_delay 3
+sync_to_monitor yes
+
+
+############################
+# Tabs
+############################
+
+tab_bar_edge top
+tab_bar_style powerline
+tab_powerline_style slanted
+tab_title_template "{index}: {title}"
+
+
+############################
+# Splits (No tmux workflow)
+############################
+
+enabled_layouts splits
+startup_layout splits
+# Vertical split
+map ctrl+shift+enter launch --location=hsplit
+
+# Horizontal split
+map ctrl+alt+v launch --location=vsplit
+
+# Close pane
+map ctrl+shift+w close_window
+
+# Vim-style pane navigation
+map ctrl+shift+h neighboring_window left
+map ctrl+shift+l neighboring_window right
+map ctrl+shift+k neighboring_window up
+map ctrl+shift+j neighboring_window down
