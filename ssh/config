@@ -1,0 +1,75 @@
+#    Mike F
+#    2026-04-06
+#    /home/mike/.ssh/config
+#    local ssh config file
+#
+### default for all ###
+HostKeyAlgorithms = +ssh-rsa
+PubkeyAcceptedAlgorithms = +ssh-rsa
+
+
+### override per host ###
+
+# --------------------------------
+#     BITBUCKET
+# --------------------------------
+
+# Personal BitBucket account
+Host bitbucket.org
+    Hostname bitbucket.org
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/BitBucket/bitbucket_personal_ed
+
+
+# --------------------------------
+#     GITHUB
+# --------------------------------
+# Personal Github account
+Host github.com
+    Hostname github.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitHub/github_personal_ed
+
+# Personal Github account - alternate
+Host github.com-mkun
+    Hostname github.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitHub/github_moroboshi_ed
+
+# Professional Github account
+Host github.com-pro
+    Hostname github.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitHub/github_professional_ed
+
+
+# --------------------------------
+#     GITLAB
+# --------------------------------
+# Personal GitLab account
+Host gitlab.com-mkun
+    Hostname gitlab.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitLab/gitlab_moroboshi_ed
+
+# Personal GitLab account - alternate
+Host gitlab.com-p2
+    Hostname gitlab.com
+    User git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/GitLab/gitlab_animalchin_ed
+
+# --------------------------------
+#     AWS
+# --------------------------------
