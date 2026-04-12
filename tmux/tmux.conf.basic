@@ -39,7 +39,7 @@ setw -g window-active-style fg=white,bg=black
 
 ## adding for powerline
 set -g default-terminal "screen-256color"
-source "/usr/share/powerline/bindings/tmux/powerline.conf"
+#source "/usr/share/powerline/bindings/tmux/powerline.conf"
 
 # do not rename windows automatically
 set-option -g allow-rename off
