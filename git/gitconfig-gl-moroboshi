@@ -1,7 +1,7 @@
 [user]
   name = moroboshi-kun
   email = 21966749-moroboshi-kun@users.noreply.gitlab.com
-  signingkey = ''
+  signingkey = 8E6FEB03072BD27E
 [commit]
   gpgsign = true
 [url "git@gitlab.com-mkun"]

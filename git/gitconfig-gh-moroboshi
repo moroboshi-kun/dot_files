@@ -1,7 +1,7 @@
 [user]
   name = moroboshi-kun
   email = 166547588+moroboshi-kun@users.noreply.github.com
-  signingkey = ''
+  signingkey = D35A8A7F578BA961
 [commit]
   gpgsign = true
 [url "git@github.com-mkun"]
