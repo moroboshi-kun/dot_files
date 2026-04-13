@@ -7,6 +7,8 @@
 HostKeyAlgorithms = +ssh-rsa
 PubkeyAcceptedAlgorithms = +ssh-rsa
 
+Host *
+    SetEnv TERM=xterm-256color
 
 ### override per host ###
 
