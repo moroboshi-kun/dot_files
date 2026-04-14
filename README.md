@@ -55,7 +55,6 @@ Welcome to my repository of personal configuration files! This collection includ
 
 Each configuration file is designed to be modular and flexible. Modify them to suit your personal preferences and workflows.
 
-
 ## 📖 Usage
 
 Backup and Sync: This repository serves as a backup of my configurations and can be used to replicate my setup on different machines.
