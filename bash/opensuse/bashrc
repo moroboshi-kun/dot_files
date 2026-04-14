@@ -10,6 +10,16 @@
 # here, since multilingual X sessions would not work properly if LANG is over-
 # ridden in every subshell.
 
+# source bash_aliases if present
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# source bash_functions if present
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
 test -s ~/.alias && . ~/.alias || true
 . "$HOME/.cargo/env"
 
