@@ -13,19 +13,6 @@ Host *
 ### override per host ###
 
 # --------------------------------
-#     BITBUCKET
-# --------------------------------
-
-# Personal BitBucket account
-Host bitbucket.org
-    Hostname bitbucket.org
-    User git
-    AddKeysToAgent yes
-    IdentitiesOnly yes
-    IdentityFile ~/.ssh/BitBucket/bitbucket_personal_ed
-
-
-# --------------------------------
 #     GITHUB
 # --------------------------------
 # Personal Github account
@@ -51,7 +38,6 @@ Host github.com-pro
     AddKeysToAgent yes
     IdentitiesOnly yes
     IdentityFile ~/.ssh/GitHub/github_professional_ed
-
 
 # --------------------------------
 #     GITLAB
