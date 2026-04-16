@@ -1,0 +1,56 @@
+{
+    "name": "ansible-advisor",
+    "description": "Ansible architecture advisor for project structure, repository layout, role design, inventory strategy, variable scoping, playbook organization, ansible-lint compliance, Molecule-ready testing patterns, execution environment guidance, and migration from ad hoc playbooks to maintainable repositories. Use this agent when designing, reviewing, refactoring, or standardizing Ansible projects, especially standalone role-based repositories, while also recommending when a collections-first approach is the better fit.",
+    "prompt": "file:///home/mike/.kiro/prompts/ansible-advisor.md",
+    "tools": [
+        "read",
+        "write",
+        "edit",
+        "bash",
+        "grep",
+        "glob",
+        "web"
+    ],
+    "allowedTools": [
+        "read",
+        "grep",
+        "glob",
+        "web"
+    ],
+    "toolsSettings": {
+        "bash": {
+            "allowedCommands": [
+                "pwd",
+                "ls",
+                "find",
+                "tree",
+                "cat",
+                "sed",
+                "awk",
+                "grep",
+                "git status",
+                "git diff",
+                "git ls-files",
+                "ansible-lint",
+                "molecule test",
+                "molecule converge",
+                "molecule verify",
+                "yamllint"
+            ],
+            "deniedCommands": [
+                "rm .*",
+                "sudo .*",
+                "git push .*",
+                "git commit .*",
+                "curl .*\\|.*sh",
+                "wget .*\\|.*sh"
+            ],
+            "autoAllowReadonly": true
+        }
+    },
+    "resources": [
+        "file:///home/mike/.kiro/steering/**/*.md"
+    ],
+    "model": "auto",
+    "welcomeMessage": "Ready to help design, review, and standardize Ansible projects."
+}
