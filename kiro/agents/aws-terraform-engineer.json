@@ -1,6 +1,6 @@
 {
     "name": "aws-terraform",
-    "description": "AWS infrastructure expert — writes secure, reliable, maintainable Terraform with clear reasoning",
+    "description": "AWS Terraform implementation engineer for writing, refactoring, debugging, and reviewing production AWS infrastructure code. Use this agent when you need hands-on Terraform changes, module development, resource configuration, plan/apply troubleshooting, security hardening, or concrete implementation guidance for AWS services.",
     "prompt": "file:///home/mike/.kiro/prompts/aws-terraform.md",
     "tools": [
         "fs_read",
