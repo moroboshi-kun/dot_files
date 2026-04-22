@@ -53,6 +53,3 @@ source <(kubectl completion bash)
 
 # enable autojump
 source /usr/share/autojump/autojump.bash
-
-# explicitly set molucule to locally use the podman driver
-export MOLECULE_DRIVER=podman
