@@ -2,8 +2,32 @@
   "name": "aws-architecture-advisor",
   "description": "AWS architecture advisor for system design, tradeoff analysis, migration planning, and cloud architecture recommendations.",
   "prompt": "file:///home/mike/.kiro/prompts/aws-architecture-advisor.md",
-  "tools": ["read", "web", "write"],
+  "tools": ["aws", "read", "web", "write"],
   "allowedTools": [],
+  "toolsSettings": {
+    "aws": {
+      "allowedServices": [
+	"ec2",
+	"route53",
+	"route53resolver",
+	"lambda",
+	"cloudwatch",
+	"logs",
+	"ssm",
+	"ssm-contacts",
+	"ssm-incidents",
+	"ssm-quicksetup",
+	"iam",
+	"sts",
+	"s3"
+      ],
+      "autoAllowReadonly": true
+    },
+    "shell": {
+      "denyByDefault": true,
+      "deniedCommands": [".*"]
+    }
+  },
   "resources": [
     "file://~/.kiro/steering/architecture-principles.md",
     "file://~/.kiro/steering/aws-standards.md",
