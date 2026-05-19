@@ -28,6 +28,9 @@
 [includeIF "gitdir:~/Development/gitlab/moroboshi/"]
   path = ~/.config/git/gitconfig-gl-moroboshi
 
+[includeIF "gitdir:~/Development/codeberg/onsokumaru/"]
+  path = ~/.config/git/gitconfig-cb-onsokumaru
+
 [core]
   editor = /usr/bin/vim
 

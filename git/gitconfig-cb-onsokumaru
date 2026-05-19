@@ -1,0 +1,7 @@
+[user]
+  name = onsokumaru
+  email = 'codeberg-onsokumaru.synopses212@passinbox.com'
+  signingkey = 537B571C19E9547C
+[commit]
+  gpgsign = true
+
