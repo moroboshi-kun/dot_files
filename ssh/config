@@ -59,5 +59,15 @@ Host gitlab.com-p2
     IdentityFile ~/.ssh/GitLab/gitlab_animalchin_ed
 
 # --------------------------------
+#     CODEBERG
+# --------------------------------
+Host codeberg.org
+    Hostname codeberg.org
+    user git
+    AddKeysToAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/Codeberg/codeberg_onsokumaru_ed
+
+# --------------------------------
 #     AWS
 # --------------------------------
