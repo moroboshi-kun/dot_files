@@ -1,0 +1,75 @@
+{
+    "name": "c-linux-embedded",
+    "description": "Modern professional C developer specializing in Linux systems, embedded software, firmware-adjacent code, debugging, performance, portability, and production-quality engineering.",
+    "prompt": "file:///home/mike/.kiro/prompts/c-linux-embedded.md",
+    "tools": [
+        "read",
+        "write",
+        "shell"
+    ],
+    "allowedTools": [
+        "read"
+    ],
+    "toolsSettings": {
+        "write": {
+            "allowedPaths": [
+                "src/**",
+                "include/**",
+                "lib/**",
+                "drivers/**",
+                "firmware/**",
+                "tests/**",
+                "cmake/**",
+                "scripts/**",
+                "docs/**",
+                "CMakeLists.txt",
+                "Makefile",
+                "meson.build",
+                "Kconfig",
+                ".clang-format",
+                ".clang-tidy"
+            ]
+        },
+        "shell": {
+            "allowedCommands": [
+                "git status --short",
+                "git diff --check",
+                "make",
+                "make test",
+                "cmake --build build",
+                "ctest --test-dir build --output-on-failure",
+                "ninja -C build",
+                "meson test -C build",
+                "clang-format --dry-run --Werror src include",
+                "clang-tidy src/*.c --",
+                "cppcheck --enable=warning,style,performance,portability src include"
+            ]
+        }
+    },
+    "resources": [
+        "file://README.md",
+        "file://docs/**/*.md",
+        "file://include/**/*.h",
+        "file://src/**/*.c",
+        "file://tests/**/*",
+        "file://CMakeLists.txt",
+        "file://Makefile",
+        "file://meson.build",
+        "file://.clang-format",
+        "file://.clang-tidy"
+    ],
+    "hooks": {
+        "agentSpawn": [
+            {
+                "command": "git status --short",
+                "timeout_ms": 5000
+            },
+            {
+                "command": "find . -maxdepth 3 \\( -name CMakeLists.txt -o -name Makefile -o -name meson.build -o -name compile_commands.json \\) 2>/dev/null",
+                "timeout_ms": 5000,
+                "cache_ttl_seconds": 60
+            }
+        ]
+    },
+    "welcomeMessage": "C/Linux embedded development agent ready. I can help with architecture, implementation, debugging, portability, testing, and code review."
+}
