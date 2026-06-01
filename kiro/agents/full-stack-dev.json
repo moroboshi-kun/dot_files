@@ -44,7 +44,8 @@
     "resources": [
         "file://package.json",
         "file://tsconfig.json",
-        "file://README.md"
+        "file://README.md",
+        "file://~/.kiro/steering/conventional-commit-standards.md"
     ],
     "welcomeMessage": "Full-stack dev agent ready. What are we building?"
 }
