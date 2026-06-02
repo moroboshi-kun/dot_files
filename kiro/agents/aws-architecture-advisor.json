@@ -2,8 +2,28 @@
   "name": "aws-architecture-advisor",
   "description": "AWS architecture advisor for system design, tradeoff analysis, migration planning, and cloud architecture recommendations.",
   "prompt": "file:///home/mike/.kiro/prompts/aws-architecture-advisor.md",
-  "tools": ["aws", "read", "web", "write"],
-  "allowedTools": [],
+  "includeMcpJson": true,
+  "tools": [
+    "@github",
+    "@linear",
+    "aws",
+    "read",
+    "shell",
+    "grep",
+    "glob",
+    "code",
+    "web_search",
+    "web_fetch",
+    "write"
+  ],
+  "allowedTools": [
+    "read",
+    "grep",
+    "glob",
+    "code",
+    "web_search",
+    "web_fetch"
+  ],
   "toolsSettings": {
     "aws": {
       "allowedServices": [
@@ -24,18 +44,30 @@
       "autoAllowReadonly": true
     },
     "shell": {
-      "denyByDefault": true,
-      "deniedCommands": [".*"]
+      "allowedCommands": [
+        "git status",
+	"git fetch"
+      ],
+      "deniedCommands": [
+        "rm .*",
+	"rm -rf .*",
+	"git rm .*",
+	"git branch -d .*",
+	"git bracnh -D .*",
+	"git push.*"
+      ],
+      "autoAllowReadonly": true,
+      "denyByDefault": false
     }
   },
   "resources": [
-    "file://~/.kiro/steering/architecture-principles.md",
-    "file://~/.kiro/steering/aws-standards.md",
-    "file://~/.kiro/steering/product.md",
-    "file://~/.kiro/steering/security-baselines.md",
-    "file://~/.kiro/steering/tech.md",
-    "file://docs/architecture/**/*.md"
-  ],
-  "hooks": {},
-  "model": null
+    "file:///home/mike/.kiro/steering/architecture-principles.md",
+    "file:///home/mike/.kiro/steering/aws-standards.md",
+    "file:///home/mike/.kiro/steering/product.md",
+    "file:///home/mike/.kiro/steering/security-baselines.md",
+    "file:///home/mike/.kiro/steering/tech.md",
+    "file:///home/mike/.kiro/steering/conventional-commit-standards.md",
+    "file://docs/architecture/**/*.md",
+    "skill://~/.kiro/skills/*/SKILL.md"
+  ]
 }
