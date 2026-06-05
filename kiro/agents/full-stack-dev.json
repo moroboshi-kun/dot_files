@@ -1,54 +1,54 @@
 {
-  "name": "full-stack-dev",
-  "description": "Senior full-stack developer proficient in JavaScript, TypeScript, Node.js, Express, React, MongoDB, SQL, and capable of learning new technologies on the fly",
-  "prompt": "file:///home/mike/.kiro/prompts/full-stack-dev.md",
-  "includeMcpJson": true,
-  "tools": [
-    "@github",
-    "@linear",
-    "@chrome-devtools",
-    "read",
-    "write",
-    "shell",
-    "grep",
-    "glob",
-    "code",
-    "web_search",
-    "web_fetch"
-  ],
-  "allowedTools": [
-    "read",
-    "grep",
-    "glob",
-    "code",
-    "web_search",
-    "web_fetch"
-  ],
-  "toolsSettings": {
-	"shell": {
-		"allowedCommands": [
-			"git status",
-			"git fetch"
-		],
-		"deniedCommands": [
-			"rm .*",
-			"rm -rf .*",
-			"git rm .*",
-			"git branch -d .*",
-			"git branch -D .*",
-			"git commit.*",
-			"git push.*"
-		],
-		"autoAllowReadonly": true,
-		"denyByDefault": false
-	}
-  },
-  "resources": [
-    "file://package.json",
-    "file://tsconfig.json",
-    "file://README.md",
-    "file://~/.kiro/steering/conventional-commit-standards.md",
-    "skill://~/.kiro/skills/*/SKILL.md"
-  ],
-  "welcomeMessage": "Full-stack dev agent ready. What are we building?"
+    "name": "full-stack-dev",
+    "description": "Senior full-stack developer proficient in JavaScript, TypeScript, Node.js, Express, React, MongoDB, SQL, and capable of learning new technologies on the fly",
+    "prompt": "file:///home/mike/.kiro/prompts/full-stack-dev.md",
+    "includeMcpJson": true,
+    "tools": [
+        "@github",
+        "@linear",
+        "@chrome-devtools",
+        "read",
+        "write",
+        "shell",
+        "grep",
+        "glob",
+        "code",
+        "web_search",
+        "web_fetch"
+    ],
+    "allowedTools": [
+        "read",
+        "grep",
+        "glob",
+        "code",
+        "web_search",
+        "web_fetch"
+    ],
+    "toolsSettings": {
+        "shell": {
+            "allowedCommands": [
+                "git status",
+                "git fetch"
+            ],
+            "deniedCommands": [
+                "rm .*",
+                "rm -rf .*",
+                "git rm .*",
+                "git branch -d .*",
+                "git branch -D .*",
+                "git commit.*",
+                "git push.*"
+            ],
+            "autoAllowReadonly": true,
+            "denyByDefault": false
+        }
+    },
+    "resources": [
+        "file://package.json",
+        "file://tsconfig.json",
+        "file://README.md",
+        "file://~/.kiro/steering/conventional-commit-standards.md",
+        "skill://~/.kiro/skills/*/SKILL.md"
+    ],
+    "welcomeMessage": "Full-stack dev agent ready. What are we building?"
 }
