@@ -1,0 +1,8 @@
+coc-clangd
+coc-json
+coc-markdownlint
+coc-pyright
+coc-rust-analyzer
+coc-sh
+coc-solargraph
+coc-terraform
