@@ -1,51 +1,64 @@
 {
     "name": "ansible-advisor",
-    "description": "Ansible architecture advisor for project structure, repository layout, role design, inventory strategy, variable scoping, playbook organization, ansible-lint compliance, Molecule-ready testing patterns, execution environment guidance, and migration from ad hoc playbooks to maintainable repositories. Use this agent when designing, reviewing, refactoring, or standardizing Ansible projects, especially standalone role-based repositories, while also recommending when a collections-first approach is the better fit.",
+    "description": "Ansible architecture advisor for project structure, repository layout, role design, inventory strategy, variable scoping, playbook organization, ansible-lint compliance, Molecule-ready testing patterns, execution environment guidance, and migration from ad hoc playbooks to maintainable repositories.",
     "prompt": "file:///home/mike/.kiro/prompts/ansible-advisor.md",
     "tools": [
         "read",
         "write",
-        "edit",
-        "bash",
+        "shell",
         "grep",
         "glob",
-        "web"
+        "web_search",
+        "web_fetch"
     ],
     "allowedTools": [
         "read",
         "grep",
         "glob",
-        "web"
+        "web_search",
+        "web_fetch"
     ],
     "toolsSettings": {
-        "bash": {
+        "shell": {
             "allowedCommands": [
-                "pwd",
-                "ls",
-                "find",
-                "tree",
-                "cat",
-                "sed",
-                "awk",
-                "grep",
-                "git status",
-                "git diff",
-                "git ls-files",
                 "ansible-lint",
                 "molecule test",
                 "molecule converge",
                 "molecule verify",
-                "yamllint"
+                "yamllint",
+                "ansible-inventory",
+                "ansible-config",
+                "ansible-doc",
+                "git status",
+                "git fetch",
+                "git log",
+                "git diff",
+                "git branch",
+                "git checkout",
+                "git switch",
+                "git add",
+                "git commit",
+                "git push",
+                "git pull",
+                "git stash",
+                "git tag",
+                "git show",
+                "git rev-parse"
             ],
             "deniedCommands": [
                 "rm .*",
                 "sudo .*",
-                "git push .*",
-                "git commit .*",
+                "ansible-playbook.*",
                 "curl .*\\|.*sh",
-                "wget .*\\|.*sh"
+                "wget .*\\|.*sh",
+                "git push --force",
+                "git push -f",
+                "git reset --hard",
+                "git clean -f.*",
+                "git branch -D.*"
             ],
-            "autoAllowReadonly": true
+            "autoAllowReadonly": true,
+            "denyByDefault": false
         }
     },
     "resources": [

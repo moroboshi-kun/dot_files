@@ -4,7 +4,6 @@
     "prompt": "file:///home/mike/.kiro/prompts/aws-architecture-advisor.md",
     "includeMcpJson": true,
     "tools": [
-        "@github",
         "@linear",
         "@chrome-devtools",
         "aws",
@@ -46,16 +45,38 @@
         },
         "shell": {
             "allowedCommands": [
+                "terraform plan",
+                "terraform validate",
+                "terraform fmt",
+                "terraform state list",
+                "terraform state show",
+                "terraform output",
                 "git status",
-                "git fetch"
+                "git fetch",
+                "git log",
+                "git diff",
+                "git branch",
+                "git checkout",
+                "git switch",
+                "git add",
+                "git commit",
+                "git push",
+                "git pull",
+                "git stash",
+                "git tag",
+                "git show",
+                "git rev-parse"
             ],
             "deniedCommands": [
                 "rm .*",
                 "rm -rf .*",
-                "git rm .*",
-                "git branch -d .*",
-                "git bracnh -D .*",
-                "git push.*"
+                "terraform destroy.*",
+                "terraform apply.*",
+                "git push --force",
+                "git push -f",
+                "git reset --hard",
+                "git clean -f.*",
+                "git branch -D.*"
             ],
             "autoAllowReadonly": true,
             "denyByDefault": false
@@ -64,10 +85,10 @@
     "resources": [
         "file:///home/mike/.kiro/steering/architecture-principles.md",
         "file:///home/mike/.kiro/steering/aws-standards.md",
+        "file:///home/mike/.kiro/steering/linear-standards.md",
         "file:///home/mike/.kiro/steering/product.md",
         "file:///home/mike/.kiro/steering/security-baselines.md",
         "file:///home/mike/.kiro/steering/tech.md",
-        "file:///home/mike/.kiro/steering/conventional-commit-standards.md",
         "file://docs/architecture/**/*.md",
         "skill://~/.kiro/skills/*/SKILL.md"
     ]

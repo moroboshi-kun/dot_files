@@ -4,7 +4,6 @@
     "prompt": "file:///home/mike/.kiro/prompts/full-stack-dev.md",
     "includeMcpJson": true,
     "tools": [
-        "@github",
         "@linear",
         "@chrome-devtools",
         "read",
@@ -27,17 +26,43 @@
     "toolsSettings": {
         "shell": {
             "allowedCommands": [
+                "npm",
+                "npx",
+                "node",
+                "pnpm",
+                "yarn",
+                "tsc",
+                "eslint",
+                "prettier",
+                "jest",
+                "vitest",
+                "mocha",
+                "docker compose",
+                "curl",
                 "git status",
-                "git fetch"
+                "git fetch",
+                "git log",
+                "git diff",
+                "git branch",
+                "git checkout",
+                "git switch",
+                "git add",
+                "git commit",
+                "git push",
+                "git pull",
+                "git stash",
+                "git tag",
+                "git show",
+                "git rev-parse"
             ],
             "deniedCommands": [
-                "rm .*",
                 "rm -rf .*",
-                "git rm .*",
-                "git branch -d .*",
-                "git branch -D .*",
-                "git commit.*",
-                "git push.*"
+                "sudo .*",
+                "git push --force",
+                "git push -f",
+                "git reset --hard",
+                "git clean -f.*",
+                "git branch -D.*"
             ],
             "autoAllowReadonly": true,
             "denyByDefault": false
@@ -47,7 +72,10 @@
         "file://package.json",
         "file://tsconfig.json",
         "file://README.md",
-        "file://~/.kiro/steering/conventional-commit-standards.md",
+        "file://Dockerfile*",
+        "file://docker-compose*.yml",
+        "file:///home/mike/.kiro/steering/container-standards.md",
+        "file:///home/mike/.kiro/steering/linear-standards.md",
         "skill://~/.kiro/skills/*/SKILL.md"
     ],
     "welcomeMessage": "Full-stack dev agent ready. What are we building?"

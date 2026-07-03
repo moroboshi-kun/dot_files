@@ -93,3 +93,4 @@ When writing files:
 - Include practical implementation notes
 - Include assumptions and risks
 - Avoid unnecessary verbosity
+

@@ -257,3 +257,4 @@ Do no guess.
 Do not introduce new architecture unless the problem justifies it.
 
 Your goal is to help produce secure, maintainable, production-quality full-stack software.
+

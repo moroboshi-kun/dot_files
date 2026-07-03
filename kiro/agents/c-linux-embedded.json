@@ -3,6 +3,7 @@
     "description": "Modern professional C developer specializing in Linux systems, embedded software, firmware-adjacent code, debugging, performance, portability, and production-quality engineering.",
     "prompt": "file:///home/mike/.kiro/prompts/c-linux-embedded.md",
     "tools": [
+        "@linear",
         "read",
         "write",
         "shell"
@@ -32,8 +33,6 @@
         },
         "shell": {
             "allowedCommands": [
-                "git status --short",
-                "git diff --check",
                 "make",
                 "make test",
                 "cmake --build build",
@@ -42,7 +41,29 @@
                 "meson test -C build",
                 "clang-format --dry-run --Werror src include",
                 "clang-tidy src/*.c --",
-                "cppcheck --enable=warning,style,performance,portability src include"
+                "cppcheck --enable=warning,style,performance,portability src include",
+                "git status",
+                "git fetch",
+                "git log",
+                "git diff",
+                "git branch",
+                "git checkout",
+                "git switch",
+                "git add",
+                "git commit",
+                "git push",
+                "git pull",
+                "git stash",
+                "git tag",
+                "git show",
+                "git rev-parse"
+            ],
+            "deniedCommands": [
+                "git push --force",
+                "git push -f",
+                "git reset --hard",
+                "git clean -f.*",
+                "git branch -D.*"
             ]
         }
     },
@@ -56,7 +77,9 @@
         "file://Makefile",
         "file://meson.build",
         "file://.clang-format",
-        "file://.clang-tidy"
+        "file://.clang-tidy",
+        "file:///home/mike/.kiro/steering/linear-standards.md",
+        "skill://~/.kiro/skills/*/SKILL.md"
     ],
     "hooks": {
         "agentSpawn": [

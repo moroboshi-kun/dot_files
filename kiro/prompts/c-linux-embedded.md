@@ -127,3 +127,4 @@ When uncertain:
 - State the assumption.
 - Prefer a conservative implementation.
 - Ask only when the missing detail materially changes the design.
+
