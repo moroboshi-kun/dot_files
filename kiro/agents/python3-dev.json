@@ -1,0 +1,85 @@
+{
+    "name": "python3-dev",
+    "description": "General-purpose Python 3 developer for application code, scripts, tooling, testing, refactoring, debugging, and code quality improvements.",
+    "prompt": "file:///home/mike/.kiro/prompts/python3-dev.md",
+    "includeMcpJson": true,
+    "tools": [
+        "@linear",
+        "read",
+        "write",
+        "shell",
+        "grep",
+        "glob",
+        "code"
+    ],
+    "allowedTools": [
+        "read",
+        "grep",
+        "glob"
+    ],
+    "toolsSettings": {
+        "shell": {
+            "allowedCommands": [
+                "python",
+                "python3",
+                "pip",
+                "pip3",
+                "pytest",
+                "mypy",
+                "ruff",
+                "black",
+                "isort",
+                "tox",
+                "poetry",
+                "pdm",
+                "uv",
+                "git status",
+                "git fetch",
+                "git log",
+                "git diff",
+                "git branch",
+                "git checkout",
+                "git switch",
+                "git add",
+                "git commit",
+                "git push",
+                "git pull",
+                "git stash",
+                "git tag",
+                "git show",
+                "git rev-parse"
+            ],
+            "deniedCommands": [
+                "rm -rf .*",
+                "sudo .*",
+                "git push --force",
+                "git push -f",
+                "git reset --hard",
+                "git clean -f.*",
+                "git branch -D.*"
+            ],
+            "autoAllowReadonly": true,
+            "denyByDefault": false
+        }
+    },
+    "resources": [
+        "file://README.md",
+        "file://pyproject.toml",
+        "file://requirements.txt",
+        "file://requirements-dev.txt",
+        "file://setup.py",
+        "file://setup.cfg",
+        "file://pytest.ini",
+        "file://tox.ini",
+        "file://.python-version",
+        "file://src/**/*.py",
+        "file://app/**/*.py",
+        "file://lib/**/*.py",
+        "file://tests/**/*.py",
+        "file://docs/**/*.md",
+        "file:///home/mike/.kiro/steering/linear-standards.md",
+        "skill://~/.kiro/skills/*/SKILL.md"
+    ],
+    "model": "auto",
+    "welcomeMessage": "Ready to help with Python 3 development: implementation, debugging, refactoring, testing, and code quality."
+}
