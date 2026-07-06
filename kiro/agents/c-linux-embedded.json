@@ -81,18 +81,6 @@
         "file:///home/mike/.kiro/steering/linear-standards.md",
         "skill://~/.kiro/skills/*/SKILL.md"
     ],
-    "hooks": {
-        "agentSpawn": [
-            {
-                "command": "git status --short",
-                "timeout_ms": 5000
-            },
-            {
-                "command": "find . -maxdepth 3 \\( -name CMakeLists.txt -o -name Makefile -o -name meson.build -o -name compile_commands.json \\) 2>/dev/null",
-                "timeout_ms": 5000,
-                "cache_ttl_seconds": 60
-            }
-        ]
-    },
+    "hooks": {},
     "welcomeMessage": "C/Linux embedded development agent ready. I can help with architecture, implementation, debugging, portability, testing, and code review."
 }
