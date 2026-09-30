@@ -6,6 +6,7 @@
     "tools": [
         "@linear",
         "@snyk",
+        "@github",
         "aws",
         "read",
         "write",

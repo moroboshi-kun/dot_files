@@ -2,8 +2,10 @@
     "name": "c-linux-embedded",
     "description": "Modern professional C developer specializing in Linux systems, embedded software, firmware-adjacent code, debugging, performance, portability, and production-quality engineering.",
     "prompt": "file:///home/mike/.kiro/prompts/c-linux-embedded.md",
+    "includeMcpJson": true,
     "tools": [
         "@linear",
+        "@github",
         "read",
         "write",
         "shell",

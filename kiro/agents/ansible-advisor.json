@@ -2,8 +2,10 @@
     "name": "ansible-advisor",
     "description": "Ansible architecture advisor for project structure, repository layout, role design, inventory strategy, variable scoping, playbook organization, ansible-lint compliance, Molecule-ready testing patterns, execution environment guidance, and migration from ad hoc playbooks to maintainable repositories.",
     "prompt": "file:///home/mike/.kiro/prompts/ansible-advisor.md",
+    "includeMcpJson": true,
     "tools": [
         "@linear",
+        "@github",
         "read",
         "write",
         "shell",
