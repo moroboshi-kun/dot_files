@@ -46,19 +46,7 @@ When creating PRs:
 
 ## Issue References in Commits
 
-Use `Closes` in commit footers for both GitHub issues and Linear tickets:
-
-```text
-feat(auth): Add SSO integration
-
-Closes JUS-456
-```
-
-```text
-chore: Remove dead code and duplicate methods
-
-Closes JUS-182, JUS-183
-```
+Reference issues in commit footers using `Closes` for both GitHub issues and Linear tickets. See `conventional-commit-standards.md` for footer format and `linear-standards.md` for ticket-reference conventions.
 
 ## Safety Rules
 
@@ -82,7 +70,7 @@ Explain what the operation will do, what could be lost, and whether it is revers
 
 ## What NOT to Do
 
-- Do not commit with vague messages ("update code", "fix stuff", "changes")
+- Do not commit with vague messages (see `conventional-commit-standards.md` for message rules)
 - Do not stage everything without reviewing what is included
 - Do not push to main/master without being told to
 - Do not force push, hard reset, or delete branches without confirmation

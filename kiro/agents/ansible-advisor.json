@@ -3,6 +3,7 @@
     "description": "Ansible architecture advisor for project structure, repository layout, role design, inventory strategy, variable scoping, playbook organization, ansible-lint compliance, Molecule-ready testing patterns, execution environment guidance, and migration from ad hoc playbooks to maintainable repositories.",
     "prompt": "file:///home/mike/.kiro/prompts/ansible-advisor.md",
     "tools": [
+        "@linear",
         "read",
         "write",
         "shell",
@@ -46,23 +47,37 @@
                 "git rev-parse"
             ],
             "deniedCommands": [
-                "rm .*",
-                "sudo .*",
                 "ansible-playbook.*",
-                "curl .*\\|.*sh",
-                "wget .*\\|.*sh",
-                "git push --force",
-                "git push -f",
-                "git reset --hard",
-                "git clean -f.*",
-                "git branch -D.*"
+                "sudo.*",
+                "rm.*-[a-zA-Z]*[rf].*",
+                "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
+                "git push.*(--force|-f).*",
+                "git reset.*--hard.*",
+                "git clean.*-[a-zA-Z]*f.*",
+                "git branch.*-D.*"
             ],
             "autoAllowReadonly": true,
             "denyByDefault": false
         }
     },
     "resources": [
-        "file:///home/mike/.kiro/steering/**/*.md"
+        "file://README.md",
+        "file://ansible.cfg",
+        "file://site.yml",
+        "file://playbooks/**/*.yml",
+        "file://playbooks/**/*.yaml",
+        "file://roles/**/*.yml",
+        "file://roles/**/*.yaml",
+        "file://inventory/**/*",
+        "file://group_vars/**/*",
+        "file://host_vars/**/*",
+        "file://molecule/**/*",
+        "file://.ansible-lint",
+        "file://.yamllint",
+        "file:///home/mike/.kiro/steering/linear-standards.md",
+        "file:///home/mike/.kiro/steering/conventional-commit-standards.md",
+        "file:///home/mike/.kiro/steering/ansible-security-standards.md",
+        "skill://~/.kiro/skills/*/SKILL.md"
     ],
     "model": "auto",
     "welcomeMessage": "Ready to help design, review, and standardize Ansible projects."

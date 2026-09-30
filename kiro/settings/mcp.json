@@ -25,6 +25,12 @@
     "chrome-devtools": {
       "command": "npx",
       "args": ["-y", "chrome-devtools-mcp@latest"]
+    },
+    "snyk": {
+      "command": "snyk",
+      "args": ["mcp", "-t", "stdio"],
+      "disabled": false,
+      "autoApprove": []
     }
   }
 }

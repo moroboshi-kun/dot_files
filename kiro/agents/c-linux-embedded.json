@@ -6,10 +6,16 @@
         "@linear",
         "read",
         "write",
-        "shell"
+        "shell",
+        "grep",
+        "glob",
+        "code"
     ],
     "allowedTools": [
-        "read"
+        "read",
+        "grep",
+        "glob",
+        "code"
     ],
     "toolsSettings": {
         "write": {
@@ -59,11 +65,13 @@
                 "git rev-parse"
             ],
             "deniedCommands": [
-                "git push --force",
-                "git push -f",
-                "git reset --hard",
-                "git clean -f.*",
-                "git branch -D.*"
+                "sudo.*",
+                "rm.*-[a-zA-Z]*[rf].*",
+                "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
+                "git push.*(--force|-f).*",
+                "git reset.*--hard.*",
+                "git clean.*-[a-zA-Z]*f.*",
+                "git branch.*-D.*"
             ]
         }
     },
@@ -81,6 +89,18 @@
         "file:///home/mike/.kiro/steering/linear-standards.md",
         "skill://~/.kiro/skills/*/SKILL.md"
     ],
-    "hooks": {},
+    "hooks": {
+        "agentSpawn": [
+            {
+                "command": "git status --short 2>/dev/null || true",
+                "timeout_ms": 5000
+            },
+            {
+                "command": "find . -maxdepth 3 \\( -name CMakeLists.txt -o -name Makefile -o -name meson.build -o -name compile_commands.json \\) 2>/dev/null || true",
+                "timeout_ms": 5000,
+                "cache_ttl_seconds": 60
+            }
+        ]
+    },
     "welcomeMessage": "C/Linux embedded development agent ready. I can help with architecture, implementation, debugging, portability, testing, and code review."
 }

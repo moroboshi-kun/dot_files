@@ -123,7 +123,7 @@ during transaction processing.
 
 ## Commit Footer
 
-Use footers for issue references and metadata.
+Use footers for issue references and metadata. Use `Closes` for both GitHub issues and Linear tickets (see `linear-standards.md`).
 
 Examples:
 
@@ -136,7 +136,7 @@ Closes #123
 ```text
 feat(auth): add SSO integration
 
-Refs: SEC-456
+Closes SEC-456
 ```
 
 ## Agent Instructions

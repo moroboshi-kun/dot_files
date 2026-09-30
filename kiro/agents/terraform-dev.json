@@ -1,21 +1,20 @@
 {
-    "name": "aws-architecture-advisor",
-    "description": "AWS architecture advisor for system design, tradeoff analysis, migration planning, and cloud architecture recommendations.",
-    "prompt": "file:///home/mike/.kiro/prompts/aws-architecture-advisor.md",
+    "name": "terraform-dev",
+    "description": "Terraform / Infrastructure-as-Code engineer for writing, reviewing, refactoring, and debugging Terraform modules, with state safety, security, and plan analysis. Implementation counterpart to the AWS architecture advisor.",
+    "prompt": "file:///home/mike/.kiro/prompts/terraform-dev.md",
     "includeMcpJson": true,
     "tools": [
         "@linear",
-        "@chrome-devtools",
         "@snyk",
         "aws",
         "read",
+        "write",
         "shell",
         "grep",
         "glob",
         "code",
         "web_search",
-        "web_fetch",
-        "write"
+        "web_fetch"
     ],
     "allowedTools": [
         "read",
@@ -35,25 +34,48 @@
                 "cloudwatch",
                 "logs",
                 "ssm",
-                "ssm-contacts",
-                "ssm-incidents",
-                "ssm-quicksetup",
                 "iam",
                 "sts",
                 "s3"
             ],
             "autoAllowReadonly": true
         },
+        "write": {
+            "allowedPaths": [
+                "**/*.tf",
+                "**/*.tf.json",
+                "**/*.hcl",
+                "modules/**",
+                "environments/**",
+                "envs/**",
+                "docs/**",
+                "README.md"
+            ],
+            "deniedPaths": [
+                "**/*.tfvars",
+                "**/*.tfvars.json",
+                "**/*.tfstate",
+                "**/*.tfstate.*",
+                "**/.terraform/**",
+                "**/*.tfplan"
+            ]
+        },
         "shell": {
             "allowedCommands": [
+                "terraform init",
                 "terraform plan",
                 "terraform validate",
                 "terraform fmt",
+                "terraform show",
+                "terraform output",
+                "terraform providers",
+                "terraform version",
                 "terraform state list",
                 "terraform state show",
-                "terraform output",
-                "curl",
-                "wget",
+                "terraform graph",
+                "tflint",
+                "tfsec",
+                "trivy config",
                 "git status",
                 "git fetch",
                 "git log",
@@ -73,6 +95,10 @@
             "deniedCommands": [
                 "terraform apply.*",
                 "terraform destroy.*",
+                "terraform state rm.*",
+                "terraform state mv.*",
+                "terraform import.*",
+                "terraform workspace delete.*",
                 "sudo.*",
                 "rm.*-[a-zA-Z]*[rf].*",
                 "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
@@ -86,13 +112,30 @@
         }
     },
     "resources": [
+        "file://README.md",
+        "file://**/*.tf",
+        "file://**/*.hcl",
+        "file://.terraform.lock.hcl",
+        "file://modules/**/*.tf",
+        "file://docs/architecture/**/*.md",
         "file:///home/mike/.kiro/steering/architecture-principles.md",
         "file:///home/mike/.kiro/steering/aws-standards.md",
-        "file:///home/mike/.kiro/steering/linear-standards.md",
         "file:///home/mike/.kiro/steering/product.md",
         "file:///home/mike/.kiro/steering/security-baselines.md",
         "file:///home/mike/.kiro/steering/tech.md",
-        "file://docs/architecture/**/*.md",
+        "file:///home/mike/.kiro/steering/conventional-commit-standards.md",
+        "file:///home/mike/.kiro/steering/linear-standards.md",
         "skill://~/.kiro/skills/*/SKILL.md"
-    ]
+    ],
+    "hooks": {
+        "agentSpawn": [
+            {
+                "command": "{ terraform version 2>/dev/null || true; git status --short 2>/dev/null || true; } 2>/dev/null; true",
+                "timeout_ms": 5000,
+                "cache_ttl_seconds": 60
+            }
+        ]
+    },
+    "model": "auto",
+    "welcomeMessage": "Terraform / IaC agent ready"
 }

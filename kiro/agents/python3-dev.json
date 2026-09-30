@@ -5,6 +5,7 @@
     "includeMcpJson": true,
     "tools": [
         "@linear",
+        "@snyk",
         "read",
         "write",
         "shell",
@@ -33,6 +34,8 @@
                 "poetry",
                 "pdm",
                 "uv",
+                "curl",
+                "wget",
                 "git status",
                 "git fetch",
                 "git log",
@@ -50,13 +53,13 @@
                 "git rev-parse"
             ],
             "deniedCommands": [
-                "rm -rf .*",
-                "sudo .*",
-                "git push --force",
-                "git push -f",
-                "git reset --hard",
-                "git clean -f.*",
-                "git branch -D.*"
+                "sudo.*",
+                "rm.*-[a-zA-Z]*[rf].*",
+                "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
+                "git push.*(--force|-f).*",
+                "git reset.*--hard.*",
+                "git clean.*-[a-zA-Z]*f.*",
+                "git branch.*-D.*"
             ],
             "autoAllowReadonly": true,
             "denyByDefault": false
