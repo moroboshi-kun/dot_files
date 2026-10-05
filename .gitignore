@@ -2,3 +2,8 @@
 
 #ssh/*
 ssh/config.local
+ssh/config.local*
+ssh/*.local
+ssh/*.local.*
+ssh/config.d/*
+
