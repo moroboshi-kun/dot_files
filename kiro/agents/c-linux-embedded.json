@@ -64,7 +64,10 @@
                 "git stash",
                 "git tag",
                 "git show",
-                "git rev-parse"
+                "git rev-parse",
+                "trash-put",
+                "trash-list",
+                "trash-restore"
             ],
             "deniedCommands": [
                 "sudo.*",
@@ -94,7 +97,8 @@
         "file://.clang-format",
         "file://.clang-tidy",
         "file:///home/mike/.kiro/steering/linear-standards.md",
-        "skill://~/.kiro/skills/*/SKILL.md"
+        "skill://~/.kiro/skills/*/SKILL.md",
+        "file:///home/mike/.kiro/steering/shell-safety-standards.md"
     ],
     "hooks": {
         "agentSpawn": [

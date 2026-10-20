@@ -51,7 +51,10 @@
                 "git stash",
                 "git tag",
                 "git show",
-                "git rev-parse"
+                "git rev-parse",
+                "trash-put",
+                "trash-list",
+                "trash-restore"
             ],
             "deniedCommands": [
                 "sudo.*",
@@ -87,7 +90,8 @@
         "file://tests/**/*.py",
         "file://docs/**/*.md",
         "file:///home/mike/.kiro/steering/linear-standards.md",
-        "skill://~/.kiro/skills/*/SKILL.md"
+        "skill://~/.kiro/skills/*/SKILL.md",
+        "file:///home/mike/.kiro/steering/shell-safety-standards.md"
     ],
     "model": "auto",
     "welcomeMessage": "Ready to help with Python 3 development: implementation, debugging, refactoring, testing, and code quality."

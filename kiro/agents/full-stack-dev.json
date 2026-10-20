@@ -56,7 +56,10 @@
                 "git stash",
                 "git tag",
                 "git show",
-                "git rev-parse"
+                "git rev-parse",
+                "trash-put",
+                "trash-list",
+                "trash-restore"
             ],
             "deniedCommands": [
                 "sudo.*",
@@ -84,7 +87,8 @@
         "file://docker-compose*.yml",
         "file:///home/mike/.kiro/steering/container-standards.md",
         "file:///home/mike/.kiro/steering/linear-standards.md",
-        "skill://~/.kiro/skills/*/SKILL.md"
+        "skill://~/.kiro/skills/*/SKILL.md",
+        "file:///home/mike/.kiro/steering/shell-safety-standards.md"
     ],
     "welcomeMessage": "Full-stack dev agent ready. What are we building?"
 }
