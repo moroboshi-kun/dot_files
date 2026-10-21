@@ -7,3 +7,7 @@ ssh/*.local
 ssh/*.local.*
 ssh/config.d/*
 
+# Kiro CLI-generated example agent config (regenerated on CLI runs; inert —
+# only *.json agent configs load). Ignore so it stops cluttering git status.
+kiro/agents/*.json.example
+
