@@ -17,3 +17,8 @@ claude/hooks/__pycache__/
 claude/**/__pycache__/
 claude/**/*.pyc
 
+# Claude Code: marketplace-synced skills. Because ~/.claude/skills is symlinked
+# into this repo, Claude writes its synced marketplace content back here at
+# runtime. It is machine-managed (re-synced on demand), not ours to version.
+claude/skills/synced/
+

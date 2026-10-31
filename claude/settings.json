@@ -1,5 +1,8 @@
 {
   "theme": "dark",
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  },
   "permissions": {
     "allow": [
       "Bash(git status *)",
