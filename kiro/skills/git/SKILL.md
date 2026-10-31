@@ -24,13 +24,18 @@ Use descriptive branch names that reflect the work:
 
 When a branch resolves multiple Linear issues, combine the identifiers in the branch name.
 
-Do not push directly to main/master unless explicitly told to.
+Do not push at all — the user runs pushes (see Push Rules). Never commit directly toward
+main/master as if it will be pushed for you.
 
 ## Push Rules
 
-- Use `-u` flag on first push to set upstream tracking.
+**Agents do not push. The user runs all `git push` operations themselves.**
+
+- Do not run `git push` (plain or force) — it is denied by agent policy. Prepare the
+  work up to the commit, then stop and tell the user the branch is ready to push.
+- When a first push will be needed, note that the user should use `git push -u` to set
+  upstream tracking (do not run it yourself).
 - Prefer feature branches for any non-trivial work.
-- Never force push without explicit user confirmation.
 
 ## Pull Request Conventions
 
@@ -72,6 +77,6 @@ Explain what the operation will do, what could be lost, and whether it is revers
 
 - Do not commit with vague messages (see `conventional-commit-standards.md` for message rules)
 - Do not stage everything without reviewing what is included
-- Do not push to main/master without being told to
+- Do not run `git push` — pushes are the user's job (agent push is denied by policy)
 - Do not force push, hard reset, or delete branches without confirmation
 - Do not commit secrets, even accidentally — if detected, warn immediately
