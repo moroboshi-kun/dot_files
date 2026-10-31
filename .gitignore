@@ -11,3 +11,9 @@ ssh/config.d/*
 # only *.json agent configs load). Ignore so it stops cluttering git status.
 kiro/agents/*.json.example
 
+# Claude Code: compiled hook bytecode written at runtime inside claude/hooks/.
+# The hook scripts are versioned; their __pycache__/*.pyc must never be.
+claude/hooks/__pycache__/
+claude/**/__pycache__/
+claude/**/*.pyc
+
