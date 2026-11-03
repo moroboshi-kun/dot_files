@@ -1,117 +1,228 @@
 {
-    "name": "c-linux-embedded",
-    "description": "Modern professional C developer specializing in Linux systems, embedded software, firmware-adjacent code, debugging, performance, portability, and production-quality engineering.",
-    "prompt": "file:///home/mike/.kiro/prompts/c-linux-embedded.md",
-    "includeMcpJson": true,
-    "tools": [
-        "@linear",
-        "@github",
-        "read",
-        "write",
-        "shell",
-        "grep",
-        "glob",
-        "code"
-    ],
-    "allowedTools": [
-        "read",
-        "grep",
-        "glob",
-        "code"
-    ],
-    "toolsSettings": {
-        "write": {
-            "allowedPaths": [
-                "src/**",
-                "include/**",
-                "lib/**",
-                "drivers/**",
-                "firmware/**",
-                "tests/**",
-                "cmake/**",
-                "scripts/**",
-                "docs/**",
-                "CMakeLists.txt",
-                "Makefile",
-                "meson.build",
-                "Kconfig",
-                ".clang-format",
-                ".clang-tidy"
-            ]
-        },
-        "shell": {
-            "allowedCommands": [
-                "make",
-                "make test",
-                "cmake --build build",
-                "ctest --test-dir build --output-on-failure",
-                "ninja -C build",
-                "meson test -C build",
-                "clang-format --dry-run --Werror src include",
-                "clang-tidy src/*.c --",
-                "cppcheck --enable=warning,style,performance,portability src include",
-                "git status",
-                "git fetch",
-                "git log",
-                "git diff",
-                "git branch",
-                "git checkout",
-                "git switch",
-                "git add",
-                "git commit",
-                "git pull",
-                "git stash",
-                "git tag",
-                "git show",
-                "git rev-parse",
-                "trash-put",
-                "trash-list",
-                "trash-restore"
-            ],
-            "deniedCommands": [
-                "sudo.*",
-                "^\\s*rm(\\s|$)",
-                "^\\s*rmdir(\\s|$)",
-                "^\\s*shred(\\s|$)",
-                "^\\s*unlink(\\s|$)",
-                "find\\s.*-delete",
-                "find\\s.*-exec\\s+rm",
-                "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
-                "git push",
-                "git push.*(--force|-f).*",
-                "git reset.*--hard.*",
-                "git clean.*-[a-zA-Z]*f.*",
-                "git branch.*-D.*"
-            ]
-        }
+  "name": "c-linux-embedded",
+  "description": "Modern professional C developer specializing in Linux systems, embedded software, firmware-adjacent code, debugging, performance, portability, and production-quality engineering.",
+  "prompt": "file://../prompts/c-linux-embedded.md",
+  "includeMcpJson": true,
+  "tools": [
+    "@github",
+    "@linear",
+    "code",
+    "glob",
+    "grep",
+    "read",
+    "shell",
+    "write"
+  ],
+  "allowedTools": [
+    "read",
+    "grep",
+    "glob",
+    "code"
+  ],
+  "toolsSettings": {
+    "write": {
+      "allowedPaths": [
+        "src/**",
+        "include/**",
+        "lib/**",
+        "drivers/**",
+        "firmware/**",
+        "tests/**",
+        "cmake/**",
+        "scripts/**",
+        "docs/**",
+        "CMakeLists.txt",
+        "Makefile",
+        "meson.build",
+        "Kconfig",
+        ".clang-format",
+        ".clang-tidy"
+      ]
     },
-    "resources": [
-        "file://README.md",
-        "file://docs/**/*.md",
-        "file://include/**/*.h",
-        "file://src/**/*.c",
-        "file://tests/**/*",
-        "file://CMakeLists.txt",
-        "file://Makefile",
-        "file://meson.build",
-        "file://.clang-format",
-        "file://.clang-tidy",
-        "file:///home/mike/.kiro/steering/linear-standards.md",
-        "skill://~/.kiro/skills/*/SKILL.md",
-        "file:///home/mike/.kiro/steering/shell-safety-standards.md"
-    ],
-    "hooks": {
-        "agentSpawn": [
-            {
-                "command": "git status --short 2>/dev/null || true",
-                "timeout_ms": 5000
-            },
-            {
-                "command": "find . -maxdepth 3 \\( -name CMakeLists.txt -o -name Makefile -o -name meson.build -o -name compile_commands.json \\) 2>/dev/null || true",
-                "timeout_ms": 5000,
-                "cache_ttl_seconds": 60
-            }
-        ]
+    "shell": {
+      "allowedCommands": [
+        "make",
+        "make test",
+        "cmake --build build",
+        "ctest --test-dir build --output-on-failure",
+        "ninja -C build",
+        "meson test -C build",
+        "clang-format --dry-run --Werror src include",
+        "clang-tidy src/*.c --",
+        "cppcheck --enable=warning,style,performance,portability src include",
+        "git status",
+        "git fetch",
+        "git log",
+        "git diff",
+        "git branch",
+        "git checkout",
+        "git switch",
+        "git add",
+        "git commit",
+        "git pull",
+        "git stash",
+        "git tag",
+        "git show",
+        "git rev-parse",
+        "trash-put",
+        "trash-list",
+        "trash-restore"
+      ],
+      "deniedCommands": [
+        "sudo.*",
+        "^\\s*rm(\\s|$)",
+        "^\\s*rmdir(\\s|$)",
+        "^\\s*shred(\\s|$)",
+        "^\\s*unlink(\\s|$)",
+        "find\\s.*-delete",
+        "find\\s.*-exec\\s+rm",
+        "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
+        "git push",
+        "git push.*(--force|-f).*",
+        "git reset.*--hard.*",
+        "git clean.*-[a-zA-Z]*f.*",
+        "git branch.*-D.*"
+      ]
+    }
+  },
+  "resources": [
+    "file://README.md",
+    "file://docs/**/*.md",
+    "file://include/**/*.h",
+    "file://src/**/*.c",
+    "file://tests/**/*",
+    "file://CMakeLists.txt",
+    "file://Makefile",
+    "file://meson.build",
+    "file://.clang-format",
+    "file://.clang-tidy",
+    "file:///home/mike/.kiro/steering/linear-standards.md",
+    "skill://~/.kiro/skills/*/SKILL.md",
+    "file:///home/mike/.kiro/steering/shell-safety-standards.md"
+  ],
+  "hooks": [
+    {
+      "name": "agentSpawn-0",
+      "trigger": "agentSpawn",
+      "action": {
+        "type": "command",
+        "command": "git status --short 2>/dev/null || true"
+      },
+      "timeout": 5
     },
-    "welcomeMessage": "C/Linux embedded development agent ready. I can help with architecture, implementation, debugging, portability, testing, and code review."
+    {
+      "name": "agentSpawn-1",
+      "trigger": "agentSpawn",
+      "action": {
+        "type": "command",
+        "command": "find . -maxdepth 3 \\( -name CMakeLists.txt -o -name Makefile -o -name meson.build -o -name compile_commands.json \\) 2>/dev/null || true"
+      },
+      "timeout": 5,
+      "cacheTtlSeconds": 60
+    }
+  ],
+  "welcomeMessage": "C/Linux embedded development agent ready. I can help with architecture, implementation, debugging, portability, testing, and code review.",
+  "permissions": {
+    "rules": [
+      {
+        "capability": "shell",
+        "match": [
+          "make",
+          "make test",
+          "cmake --build build",
+          "ctest --test-dir build --output-on-failure",
+          "ninja -C build",
+          "meson test -C build",
+          "clang-format --dry-run --Werror src include",
+          "clang-tidy src*c --",
+          "cppcheck --enable=warning,style,performance,portability src include",
+          "git status",
+          "git fetch",
+          "git log",
+          "git diff",
+          "git branch",
+          "git checkout",
+          "git switch",
+          "git add",
+          "git commit",
+          "git pull",
+          "git stash",
+          "git tag",
+          "git show",
+          "git rev-parse",
+          "trash-put",
+          "trash-list",
+          "trash-restore"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "shell",
+        "match": [
+          "bash",
+          "bash *",
+          "dash",
+          "dash *",
+          "find *-delete",
+          "find *-exec rm*",
+          "find *-execdir rm*",
+          "git branch *-D*",
+          "git clean *-*f*",
+          "git clean *-f*",
+          "git push",
+          "git push *",
+          "git reset *--hard*",
+          "rm",
+          "rm *",
+          "rmdir",
+          "rmdir *",
+          "sh",
+          "sh *",
+          "shred",
+          "shred *",
+          "sudo",
+          "sudo *",
+          "unlink",
+          "unlink *",
+          "zsh",
+          "zsh *"
+        ],
+        "effect": "deny"
+      },
+      {
+        "capability": "fs_write",
+        "match": [
+          "src/**",
+          "include/**",
+          "lib/**",
+          "drivers/**",
+          "firmware/**",
+          "tests/**",
+          "cmake/**",
+          "scripts/**",
+          "docs/**",
+          "CMakeLists.txt",
+          "Makefile",
+          "meson.build",
+          "Kconfig",
+          ".clang-format",
+          ".clang-tidy"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
+      }
+    ]
+  },
+  "kiroUpgrade": {
+    "revision": 2,
+    "fingerprint": "sha256:13ccff3256ea10ba0fb4305e51559618e6c1e9db6640b046829e4a0792e1f16e",
+    "source": "sha256:29d90ac6a59f498d62646204dfb7dcd1d2e4490c43b47c895375fce61f52f616"
+  }
 }

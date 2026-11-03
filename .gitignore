@@ -11,6 +11,11 @@ ssh/config.d/*
 # only *.json agent configs load). Ignore so it stops cluttering git status.
 kiro/agents/*.json.example
 
+# Kiro CLI V3 /upgrade-agent (and auto-upgrade) writes <name>.json.bak backups of
+# the pre-upgrade V2 configs. Kept on disk as a short-term rollback; not versioned
+# (git history already holds the originals). Safe to trash once confident.
+kiro/agents/*.json.bak
+
 # Claude Code: compiled hook bytecode written at runtime inside claude/hooks/.
 # The hook scripts are versioned; their __pycache__/*.pyc must never be.
 claude/hooks/__pycache__/

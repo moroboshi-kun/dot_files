@@ -1,95 +1,189 @@
 {
-    "name": "ansible-advisor",
-    "description": "Ansible architecture advisor for project structure, repository layout, role design, inventory strategy, variable scoping, playbook organization, ansible-lint compliance, Molecule-ready testing patterns, execution environment guidance, and migration from ad hoc playbooks to maintainable repositories.",
-    "prompt": "file:///home/mike/.kiro/prompts/ansible-advisor.md",
-    "includeMcpJson": true,
-    "tools": [
-        "@linear",
-        "@github",
-        "read",
-        "write",
-        "shell",
-        "grep",
-        "glob",
-        "web_search",
-        "web_fetch"
+  "name": "ansible-advisor",
+  "description": "Ansible architecture advisor for project structure, repository layout, role design, inventory strategy, variable scoping, playbook organization, ansible-lint compliance, Molecule-ready testing patterns, execution environment guidance, and migration from ad hoc playbooks to maintainable repositories.",
+  "prompt": "file://../prompts/ansible-advisor.md",
+  "includeMcpJson": true,
+  "tools": [
+    "@github",
+    "@linear",
+    "glob",
+    "grep",
+    "read",
+    "shell",
+    "web",
+    "web_fetch",
+    "web_search",
+    "write"
+  ],
+  "allowedTools": [
+    "read",
+    "grep",
+    "glob",
+    "web_search",
+    "web_fetch"
+  ],
+  "toolsSettings": {
+    "shell": {
+      "allowedCommands": [
+        "ansible-lint",
+        "molecule test",
+        "molecule converge",
+        "molecule verify",
+        "yamllint",
+        "ansible-inventory",
+        "ansible-config",
+        "ansible-doc",
+        "git status",
+        "git fetch",
+        "git log",
+        "git diff",
+        "git branch",
+        "git checkout",
+        "git switch",
+        "git add",
+        "git commit",
+        "git pull",
+        "git stash",
+        "git tag",
+        "git show",
+        "git rev-parse",
+        "trash-put",
+        "trash-list",
+        "trash-restore"
+      ],
+      "deniedCommands": [
+        "ansible-playbook.*",
+        "sudo.*",
+        "^\\s*rm(\\s|$)",
+        "^\\s*rmdir(\\s|$)",
+        "^\\s*shred(\\s|$)",
+        "^\\s*unlink(\\s|$)",
+        "find\\s.*-delete",
+        "find\\s.*-exec\\s+rm",
+        "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
+        "git push",
+        "git push.*(--force|-f).*",
+        "git reset.*--hard.*",
+        "git clean.*-[a-zA-Z]*f.*",
+        "git branch.*-D.*"
+      ],
+      "autoAllowReadonly": true,
+      "denyByDefault": false
+    }
+  },
+  "resources": [
+    "file://README.md",
+    "file://ansible.cfg",
+    "file://site.yml",
+    "file://playbooks/**/*.yml",
+    "file://playbooks/**/*.yaml",
+    "file://roles/**/*.yml",
+    "file://roles/**/*.yaml",
+    "file://inventory/**/*",
+    "file://group_vars/**/*",
+    "file://host_vars/**/*",
+    "file://molecule/**/*",
+    "file://.ansible-lint",
+    "file://.yamllint",
+    "file:///home/mike/.kiro/steering/linear-standards.md",
+    "file:///home/mike/.kiro/steering/conventional-commit-standards.md",
+    "file:///home/mike/.kiro/steering/ansible-security-standards.md",
+    "skill://~/.kiro/skills/*/SKILL.md",
+    "file:///home/mike/.kiro/steering/shell-safety-standards.md"
+  ],
+  "model": "auto",
+  "welcomeMessage": "Ready to help design, review, and standardize Ansible projects.",
+  "permissions": {
+    "rules": [
+      {
+        "capability": "shell",
+        "match": [
+          "ansible-lint",
+          "molecule test",
+          "molecule converge",
+          "molecule verify",
+          "yamllint",
+          "ansible-inventory",
+          "ansible-config",
+          "ansible-doc",
+          "git status",
+          "git fetch",
+          "git log",
+          "git diff",
+          "git branch",
+          "git checkout",
+          "git switch",
+          "git add",
+          "git commit",
+          "git pull",
+          "git stash",
+          "git tag",
+          "git show",
+          "git rev-parse",
+          "trash-put",
+          "trash-list",
+          "trash-restore"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "shell",
+        "match": [
+          "ansible-playbook*",
+          "bash",
+          "bash *",
+          "dash",
+          "dash *",
+          "find *-delete",
+          "find *-exec rm*",
+          "find *-execdir rm*",
+          "git branch *-D*",
+          "git clean *-*f*",
+          "git clean *-f*",
+          "git push",
+          "git push *",
+          "git reset *--hard*",
+          "rm",
+          "rm *",
+          "rmdir",
+          "rmdir *",
+          "sh",
+          "sh *",
+          "shred",
+          "shred *",
+          "sudo",
+          "sudo *",
+          "unlink",
+          "unlink *",
+          "zsh",
+          "zsh *"
+        ],
+        "effect": "deny"
+      },
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_fetch",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_search",
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
+      }
     ],
-    "allowedTools": [
-        "read",
-        "grep",
-        "glob",
-        "web_search",
-        "web_fetch"
-    ],
-    "toolsSettings": {
-        "shell": {
-            "allowedCommands": [
-                "ansible-lint",
-                "molecule test",
-                "molecule converge",
-                "molecule verify",
-                "yamllint",
-                "ansible-inventory",
-                "ansible-config",
-                "ansible-doc",
-                "git status",
-                "git fetch",
-                "git log",
-                "git diff",
-                "git branch",
-                "git checkout",
-                "git switch",
-                "git add",
-                "git commit",
-                "git pull",
-                "git stash",
-                "git tag",
-                "git show",
-                "git rev-parse",
-                "trash-put",
-                "trash-list",
-                "trash-restore"
-            ],
-            "deniedCommands": [
-                "ansible-playbook.*",
-                "sudo.*",
-                "^\\s*rm(\\s|$)",
-                "^\\s*rmdir(\\s|$)",
-                "^\\s*shred(\\s|$)",
-                "^\\s*unlink(\\s|$)",
-                "find\\s.*-delete",
-                "find\\s.*-exec\\s+rm",
-                "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
-                "git push",
-                "git push.*(--force|-f).*",
-                "git reset.*--hard.*",
-                "git clean.*-[a-zA-Z]*f.*",
-                "git branch.*-D.*"
-            ],
-            "autoAllowReadonly": true,
-            "denyByDefault": false
-        }
-    },
-    "resources": [
-        "file://README.md",
-        "file://ansible.cfg",
-        "file://site.yml",
-        "file://playbooks/**/*.yml",
-        "file://playbooks/**/*.yaml",
-        "file://roles/**/*.yml",
-        "file://roles/**/*.yaml",
-        "file://inventory/**/*",
-        "file://group_vars/**/*",
-        "file://host_vars/**/*",
-        "file://molecule/**/*",
-        "file://.ansible-lint",
-        "file://.yamllint",
-        "file:///home/mike/.kiro/steering/linear-standards.md",
-        "file:///home/mike/.kiro/steering/conventional-commit-standards.md",
-        "file:///home/mike/.kiro/steering/ansible-security-standards.md",
-        "skill://~/.kiro/skills/*/SKILL.md",
-        "file:///home/mike/.kiro/steering/shell-safety-standards.md"
-    ],
-    "model": "auto",
-    "welcomeMessage": "Ready to help design, review, and standardize Ansible projects."
+    "policies": [
+      "read-only-shell"
+    ]
+  },
+  "kiroUpgrade": {
+    "revision": 2,
+    "fingerprint": "sha256:665aa47eb1ce322442bb0419e439cb1528e58a58fac903293de30fd8ffd300e1",
+    "source": "sha256:efbe917ec6796b13936616fb6e29cda8ea2bcecb9177c4d305fd33c3a6e05fd1"
+  }
 }

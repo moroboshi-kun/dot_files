@@ -1,109 +1,224 @@
 {
-    "name": "aws-architecture-advisor",
-    "description": "AWS architecture advisor for system design, tradeoff analysis, migration planning, and cloud architecture recommendations.",
-    "prompt": "file:///home/mike/.kiro/prompts/aws-architecture-advisor.md",
-    "includeMcpJson": true,
-    "tools": [
-        "@linear",
-        "@chrome-devtools",
-        "@snyk",
-        "@github",
-        "aws",
-        "read",
-        "shell",
-        "grep",
-        "glob",
-        "code",
-        "web_search",
-        "web_fetch",
-        "write"
-    ],
-    "allowedTools": [
-        "read",
-        "grep",
-        "glob",
-        "code",
-        "web_search",
-        "web_fetch"
-    ],
-    "toolsSettings": {
-        "aws": {
-            "allowedServices": [
-                "ec2",
-                "route53",
-                "route53resolver",
-                "lambda",
-                "cloudwatch",
-                "logs",
-                "ce",
-                "ssm",
-                "ssm-contacts",
-                "ssm-incidents",
-                "ssm-quicksetup",
-                "iam",
-                "sts",
-                "s3"
-            ],
-            "autoAllowReadonly": true
-        },
-        "shell": {
-            "allowedCommands": [
-                "terraform plan",
-                "terraform validate",
-                "terraform fmt",
-                "terraform state list",
-                "terraform state show",
-                "terraform output",
-                "curl",
-                "wget",
-                "git status",
-                "git fetch",
-                "git log",
-                "git diff",
-                "git branch",
-                "git checkout",
-                "git switch",
-                "git add",
-                "git commit",
-                "git pull",
-                "git stash",
-                "git tag",
-                "git show",
-                "git rev-parse",
-                "trash-put",
-                "trash-list",
-                "trash-restore"
-            ],
-            "deniedCommands": [
-                "terraform apply.*",
-                "terraform destroy.*",
-                "sudo.*",
-                "^\\s*rm(\\s|$)",
-                "^\\s*rmdir(\\s|$)",
-                "^\\s*shred(\\s|$)",
-                "^\\s*unlink(\\s|$)",
-                "find\\s.*-delete",
-                "find\\s.*-exec\\s+rm",
-                "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
-                "git push",
-                "git push.*(--force|-f).*",
-                "git reset.*--hard.*",
-                "git clean.*-[a-zA-Z]*f.*",
-                "git branch.*-D.*"
-            ],
-            "autoAllowReadonly": true,
-            "denyByDefault": false
-        }
+  "name": "aws-architecture-advisor",
+  "description": "AWS architecture advisor for system design, tradeoff analysis, migration planning, and cloud architecture recommendations.",
+  "prompt": "file://../prompts/aws-architecture-advisor.md",
+  "includeMcpJson": true,
+  "tools": [
+    "@chrome-devtools",
+    "@github",
+    "@linear",
+    "@snyk",
+    "aws",
+    "code",
+    "glob",
+    "grep",
+    "read",
+    "shell",
+    "web",
+    "web_fetch",
+    "web_search",
+    "write"
+  ],
+  "allowedTools": [
+    "read",
+    "grep",
+    "glob",
+    "code",
+    "web_search",
+    "web_fetch"
+  ],
+  "toolsSettings": {
+    "aws": {
+      "allowedServices": [
+        "ec2",
+        "route53",
+        "route53resolver",
+        "lambda",
+        "cloudwatch",
+        "logs",
+        "ce",
+        "ssm",
+        "ssm-contacts",
+        "ssm-incidents",
+        "ssm-quicksetup",
+        "iam",
+        "sts",
+        "s3"
+      ],
+      "autoAllowReadonly": true
     },
-    "resources": [
-        "file:///home/mike/.kiro/steering/architecture-principles.md",
-        "file:///home/mike/.kiro/steering/aws-standards.md",
-        "file:///home/mike/.kiro/steering/linear-standards.md",
-        "file:///home/mike/.kiro/steering/product.md",
-        "file:///home/mike/.kiro/steering/security-baselines.md",
-        "file:///home/mike/.kiro/steering/tech.md",
-        "file://docs/architecture/**/*.md",
-        "skill://~/.kiro/skills/*/SKILL.md",
-        "file:///home/mike/.kiro/steering/shell-safety-standards.md"
+    "shell": {
+      "allowedCommands": [
+        "terraform plan",
+        "terraform validate",
+        "terraform fmt",
+        "terraform state list",
+        "terraform state show",
+        "terraform output",
+        "curl",
+        "wget",
+        "git status",
+        "git fetch",
+        "git log",
+        "git diff",
+        "git branch",
+        "git checkout",
+        "git switch",
+        "git add",
+        "git commit",
+        "git pull",
+        "git stash",
+        "git tag",
+        "git show",
+        "git rev-parse",
+        "trash-put",
+        "trash-list",
+        "trash-restore"
+      ],
+      "deniedCommands": [
+        "terraform apply.*",
+        "terraform destroy.*",
+        "sudo.*",
+        "^\\s*rm(\\s|$)",
+        "^\\s*rmdir(\\s|$)",
+        "^\\s*shred(\\s|$)",
+        "^\\s*unlink(\\s|$)",
+        "find\\s.*-delete",
+        "find\\s.*-exec\\s+rm",
+        "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
+        "git push",
+        "git push.*(--force|-f).*",
+        "git reset.*--hard.*",
+        "git clean.*-[a-zA-Z]*f.*",
+        "git branch.*-D.*"
+      ],
+      "autoAllowReadonly": true,
+      "denyByDefault": false
+    }
+  },
+  "resources": [
+    "file:///home/mike/.kiro/steering/architecture-principles.md",
+    "file:///home/mike/.kiro/steering/aws-standards.md",
+    "file:///home/mike/.kiro/steering/linear-standards.md",
+    "file:///home/mike/.kiro/steering/product.md",
+    "file:///home/mike/.kiro/steering/security-baselines.md",
+    "file:///home/mike/.kiro/steering/tech.md",
+    "file://docs/architecture/**/*.md",
+    "skill://~/.kiro/skills/*/SKILL.md",
+    "file:///home/mike/.kiro/steering/shell-safety-standards.md"
+  ],
+  "permissions": {
+    "rules": [
+      {
+        "capability": "shell",
+        "match": [
+          "terraform plan",
+          "terraform validate",
+          "terraform fmt",
+          "terraform state list",
+          "terraform state show",
+          "terraform output",
+          "curl",
+          "wget",
+          "git status",
+          "git fetch",
+          "git log",
+          "git diff",
+          "git branch",
+          "git checkout",
+          "git switch",
+          "git add",
+          "git commit",
+          "git pull",
+          "git stash",
+          "git tag",
+          "git show",
+          "git rev-parse",
+          "trash-put",
+          "trash-list",
+          "trash-restore"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "shell",
+        "match": [
+          "bash",
+          "bash *",
+          "dash",
+          "dash *",
+          "find *-delete",
+          "find *-exec rm*",
+          "find *-execdir rm*",
+          "git branch *-D*",
+          "git clean *-*f*",
+          "git clean *-f*",
+          "git push",
+          "git push *",
+          "git reset *--hard*",
+          "rm",
+          "rm *",
+          "rmdir",
+          "rmdir *",
+          "sh",
+          "sh *",
+          "shred",
+          "shred *",
+          "sudo",
+          "sudo *",
+          "terraform apply*",
+          "terraform destroy*",
+          "unlink",
+          "unlink *",
+          "zsh",
+          "zsh *"
+        ],
+        "effect": "deny"
+      },
+      {
+        "capability": "use_aws",
+        "match": [
+          "ec2:*",
+          "route53:*",
+          "route53resolver:*",
+          "lambda:*",
+          "cloudwatch:*",
+          "logs:*",
+          "ce:*",
+          "ssm:*",
+          "ssm-contacts:*",
+          "ssm-incidents:*",
+          "ssm-quicksetup:*",
+          "iam:*",
+          "sts:*",
+          "s3:*"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_fetch",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_search",
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
+      }
+    ],
+    "policies": [
+      "read-only-shell"
     ]
+  },
+  "kiroUpgrade": {
+    "revision": 2,
+    "fingerprint": "sha256:6920e677ad19b30a00362ebefae2c32fa566fc2495a7c94157bd0c096152a693",
+    "source": "sha256:e425bbae342506ddb87d539fe81625f96708fd73e2ca1d014a39d248891bfd7c"
+  }
 }

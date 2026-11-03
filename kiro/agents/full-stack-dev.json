@@ -1,94 +1,193 @@
 {
-    "name": "full-stack-dev",
-    "description": "Senior full-stack developer proficient in JavaScript, TypeScript, Node.js, Express, React, MongoDB, SQL, and capable of learning new technologies on the fly",
-    "prompt": "file:///home/mike/.kiro/prompts/full-stack-dev.md",
-    "includeMcpJson": true,
-    "tools": [
-        "@linear",
-        "@chrome-devtools",
-        "@snyk",
-        "@github",
-        "read",
-        "write",
-        "shell",
-        "grep",
-        "glob",
-        "code",
-        "web_search",
-        "web_fetch"
+  "name": "full-stack-dev",
+  "description": "Senior full-stack developer proficient in JavaScript, TypeScript, Node.js, Express, React, MongoDB, SQL, and capable of learning new technologies on the fly",
+  "prompt": "file://../prompts/full-stack-dev.md",
+  "includeMcpJson": true,
+  "tools": [
+    "@chrome-devtools",
+    "@github",
+    "@linear",
+    "@snyk",
+    "code",
+    "glob",
+    "grep",
+    "read",
+    "shell",
+    "web",
+    "web_fetch",
+    "web_search",
+    "write"
+  ],
+  "allowedTools": [
+    "read",
+    "grep",
+    "glob",
+    "code",
+    "web_search",
+    "web_fetch"
+  ],
+  "toolsSettings": {
+    "shell": {
+      "allowedCommands": [
+        "npm",
+        "npx",
+        "node",
+        "pnpm",
+        "yarn",
+        "tsc",
+        "eslint",
+        "prettier",
+        "jest",
+        "vitest",
+        "mocha",
+        "docker compose",
+        "curl",
+        "wget",
+        "git status",
+        "git fetch",
+        "git log",
+        "git diff",
+        "git branch",
+        "git checkout",
+        "git switch",
+        "git add",
+        "git commit",
+        "git pull",
+        "git stash",
+        "git tag",
+        "git show",
+        "git rev-parse",
+        "trash-put",
+        "trash-list",
+        "trash-restore"
+      ],
+      "deniedCommands": [
+        "sudo.*",
+        "^\\s*rm(\\s|$)",
+        "^\\s*rmdir(\\s|$)",
+        "^\\s*shred(\\s|$)",
+        "^\\s*unlink(\\s|$)",
+        "find\\s.*-delete",
+        "find\\s.*-exec\\s+rm",
+        "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
+        "git push",
+        "git push.*(--force|-f).*",
+        "git reset.*--hard.*",
+        "git clean.*-[a-zA-Z]*f.*",
+        "git branch.*-D.*"
+      ],
+      "autoAllowReadonly": true,
+      "denyByDefault": false
+    }
+  },
+  "resources": [
+    "file://package.json",
+    "file://tsconfig.json",
+    "file://README.md",
+    "file://Dockerfile*",
+    "file://docker-compose*.yml",
+    "file:///home/mike/.kiro/steering/container-standards.md",
+    "file:///home/mike/.kiro/steering/linear-standards.md",
+    "skill://~/.kiro/skills/*/SKILL.md",
+    "file:///home/mike/.kiro/steering/shell-safety-standards.md"
+  ],
+  "welcomeMessage": "Full-stack dev agent ready. What are we building?",
+  "permissions": {
+    "rules": [
+      {
+        "capability": "shell",
+        "match": [
+          "npm",
+          "npx",
+          "node",
+          "pnpm",
+          "yarn",
+          "tsc",
+          "eslint",
+          "prettier",
+          "jest",
+          "vitest",
+          "mocha",
+          "docker compose",
+          "curl",
+          "wget",
+          "git status",
+          "git fetch",
+          "git log",
+          "git diff",
+          "git branch",
+          "git checkout",
+          "git switch",
+          "git add",
+          "git commit",
+          "git pull",
+          "git stash",
+          "git tag",
+          "git show",
+          "git rev-parse",
+          "trash-put",
+          "trash-list",
+          "trash-restore"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "shell",
+        "match": [
+          "bash",
+          "bash *",
+          "dash",
+          "dash *",
+          "find *-delete",
+          "find *-exec rm*",
+          "find *-execdir rm*",
+          "git branch *-D*",
+          "git clean *-*f*",
+          "git clean *-f*",
+          "git push",
+          "git push *",
+          "git reset *--hard*",
+          "rm",
+          "rm *",
+          "rmdir",
+          "rmdir *",
+          "sh",
+          "sh *",
+          "shred",
+          "shred *",
+          "sudo",
+          "sudo *",
+          "unlink",
+          "unlink *",
+          "zsh",
+          "zsh *"
+        ],
+        "effect": "deny"
+      },
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_fetch",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_search",
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
+      }
     ],
-    "allowedTools": [
-        "read",
-        "grep",
-        "glob",
-        "code",
-        "web_search",
-        "web_fetch"
-    ],
-    "toolsSettings": {
-        "shell": {
-            "allowedCommands": [
-                "npm",
-                "npx",
-                "node",
-                "pnpm",
-                "yarn",
-                "tsc",
-                "eslint",
-                "prettier",
-                "jest",
-                "vitest",
-                "mocha",
-                "docker compose",
-                "curl",
-                "wget",
-                "git status",
-                "git fetch",
-                "git log",
-                "git diff",
-                "git branch",
-                "git checkout",
-                "git switch",
-                "git add",
-                "git commit",
-                "git pull",
-                "git stash",
-                "git tag",
-                "git show",
-                "git rev-parse",
-                "trash-put",
-                "trash-list",
-                "trash-restore"
-            ],
-            "deniedCommands": [
-                "sudo.*",
-                "^\\s*rm(\\s|$)",
-                "^\\s*rmdir(\\s|$)",
-                "^\\s*shred(\\s|$)",
-                "^\\s*unlink(\\s|$)",
-                "find\\s.*-delete",
-                "find\\s.*-exec\\s+rm",
-                "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
-                "git push",
-                "git push.*(--force|-f).*",
-                "git reset.*--hard.*",
-                "git clean.*-[a-zA-Z]*f.*",
-                "git branch.*-D.*"
-            ],
-            "autoAllowReadonly": true,
-            "denyByDefault": false
-        }
-    },
-    "resources": [
-        "file://package.json",
-        "file://tsconfig.json",
-        "file://README.md",
-        "file://Dockerfile*",
-        "file://docker-compose*.yml",
-        "file:///home/mike/.kiro/steering/container-standards.md",
-        "file:///home/mike/.kiro/steering/linear-standards.md",
-        "skill://~/.kiro/skills/*/SKILL.md",
-        "file:///home/mike/.kiro/steering/shell-safety-standards.md"
-    ],
-    "welcomeMessage": "Full-stack dev agent ready. What are we building?"
+    "policies": [
+      "read-only-shell"
+    ]
+  },
+  "kiroUpgrade": {
+    "revision": 2,
+    "fingerprint": "sha256:3597368e32f247af302e91c9937c15654fe5a306071b357de14efb3ca23d3200",
+    "source": "sha256:125b66218b4afc13be956770210456bacfaca3e22858ec950229ec1f612e5a2d"
+  }
 }

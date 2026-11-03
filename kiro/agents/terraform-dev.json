@@ -1,151 +1,301 @@
 {
-    "name": "terraform-dev",
-    "description": "Terraform / Infrastructure-as-Code engineer for writing, reviewing, refactoring, and debugging Terraform modules, with state safety, security, and plan analysis. Implementation counterpart to the AWS architecture advisor.",
-    "prompt": "file:///home/mike/.kiro/prompts/terraform-dev.md",
-    "includeMcpJson": true,
-    "tools": [
-        "@linear",
-        "@snyk",
-        "@github",
-        "aws",
-        "read",
-        "write",
-        "shell",
-        "grep",
-        "glob",
-        "code",
-        "web_search",
-        "web_fetch"
-    ],
-    "allowedTools": [
-        "read",
-        "grep",
-        "glob",
-        "code",
-        "web_search",
-        "web_fetch"
-    ],
-    "toolsSettings": {
-        "aws": {
-            "allowedServices": [
-                "ec2",
-                "route53",
-                "route53resolver",
-                "lambda",
-                "cloudwatch",
-                "logs",
-                "ssm",
-                "iam",
-                "sts",
-                "s3"
-            ],
-            "autoAllowReadonly": true
-        },
-        "write": {
-            "allowedPaths": [
-                "**/*.tf",
-                "**/*.tf.json",
-                "**/*.hcl",
-                "modules/**",
-                "environments/**",
-                "envs/**",
-                "docs/**",
-                "README.md"
-            ],
-            "deniedPaths": [
-                "**/*.tfvars",
-                "**/*.tfvars.json",
-                "**/*.tfstate",
-                "**/*.tfstate.*",
-                "**/.terraform/**",
-                "**/*.tfplan"
-            ]
-        },
-        "shell": {
-            "allowedCommands": [
-                "terraform init",
-                "terraform plan",
-                "terraform validate",
-                "terraform fmt",
-                "terraform show",
-                "terraform output",
-                "terraform providers",
-                "terraform version",
-                "terraform state list",
-                "terraform state show",
-                "terraform graph",
-                "tflint",
-                "tfsec",
-                "trivy config",
-                "git status",
-                "git fetch",
-                "git log",
-                "git diff",
-                "git branch",
-                "git checkout",
-                "git switch",
-                "git add",
-                "git commit",
-                "git pull",
-                "git stash",
-                "git tag",
-                "git show",
-                "git rev-parse",
-                "trash-put",
-                "trash-list",
-                "trash-restore"
-            ],
-            "deniedCommands": [
-                "terraform apply.*",
-                "terraform destroy.*",
-                "terraform state rm.*",
-                "terraform state mv.*",
-                "terraform import.*",
-                "terraform workspace delete.*",
-                "sudo.*",
-                "^\\s*rm(\\s|$)",
-                "^\\s*rmdir(\\s|$)",
-                "^\\s*shred(\\s|$)",
-                "^\\s*unlink(\\s|$)",
-                "find\\s.*-delete",
-                "find\\s.*-exec\\s+rm",
-                "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
-                "git push",
-                "git push.*(--force|-f).*",
-                "git reset.*--hard.*",
-                "git clean.*-[a-zA-Z]*f.*",
-                "git branch.*-D.*"
-            ],
-            "autoAllowReadonly": true,
-            "denyByDefault": false
-        }
+  "name": "terraform-dev",
+  "description": "Terraform / Infrastructure-as-Code engineer for writing, reviewing, refactoring, and debugging Terraform modules, with state safety, security, and plan analysis. Implementation counterpart to the AWS architecture advisor.",
+  "prompt": "file://../prompts/terraform-dev.md",
+  "includeMcpJson": true,
+  "tools": [
+    "@github",
+    "@linear",
+    "@snyk",
+    "aws",
+    "code",
+    "glob",
+    "grep",
+    "read",
+    "shell",
+    "web",
+    "web_fetch",
+    "web_search",
+    "write"
+  ],
+  "allowedTools": [
+    "read",
+    "grep",
+    "glob",
+    "code",
+    "web_search",
+    "web_fetch"
+  ],
+  "toolsSettings": {
+    "aws": {
+      "allowedServices": [
+        "ec2",
+        "route53",
+        "route53resolver",
+        "lambda",
+        "cloudwatch",
+        "logs",
+        "ssm",
+        "iam",
+        "sts",
+        "s3"
+      ],
+      "autoAllowReadonly": true
     },
-    "resources": [
-        "file://README.md",
-        "file://**/*.tf",
-        "file://**/*.hcl",
-        "file://.terraform.lock.hcl",
-        "file://modules/**/*.tf",
-        "file://docs/architecture/**/*.md",
-        "file:///home/mike/.kiro/steering/architecture-principles.md",
-        "file:///home/mike/.kiro/steering/aws-standards.md",
-        "file:///home/mike/.kiro/steering/product.md",
-        "file:///home/mike/.kiro/steering/security-baselines.md",
-        "file:///home/mike/.kiro/steering/tech.md",
-        "file:///home/mike/.kiro/steering/conventional-commit-standards.md",
-        "file:///home/mike/.kiro/steering/linear-standards.md",
-        "skill://~/.kiro/skills/*/SKILL.md",
-        "file:///home/mike/.kiro/steering/shell-safety-standards.md"
-    ],
-    "hooks": {
-        "agentSpawn": [
-            {
-                "command": "{ terraform version 2>/dev/null || true; git status --short 2>/dev/null || true; } 2>/dev/null; true",
-                "timeout_ms": 5000,
-                "cache_ttl_seconds": 60
-            }
-        ]
+    "write": {
+      "allowedPaths": [
+        "**/*.tf",
+        "**/*.tf.json",
+        "**/*.hcl",
+        "modules/**",
+        "environments/**",
+        "envs/**",
+        "docs/**",
+        "README.md"
+      ],
+      "deniedPaths": [
+        "**/*.tfvars",
+        "**/*.tfvars.json",
+        "**/*.tfstate",
+        "**/*.tfstate.*",
+        "**/.terraform/**",
+        "**/*.tfplan"
+      ]
     },
-    "model": "auto",
-    "welcomeMessage": "Terraform / IaC agent ready"
+    "shell": {
+      "allowedCommands": [
+        "terraform init",
+        "terraform plan",
+        "terraform validate",
+        "terraform fmt",
+        "terraform show",
+        "terraform output",
+        "terraform providers",
+        "terraform version",
+        "terraform state list",
+        "terraform state show",
+        "terraform graph",
+        "tflint",
+        "tfsec",
+        "trivy config",
+        "git status",
+        "git fetch",
+        "git log",
+        "git diff",
+        "git branch",
+        "git checkout",
+        "git switch",
+        "git add",
+        "git commit",
+        "git pull",
+        "git stash",
+        "git tag",
+        "git show",
+        "git rev-parse",
+        "trash-put",
+        "trash-list",
+        "trash-restore"
+      ],
+      "deniedCommands": [
+        "terraform apply.*",
+        "terraform destroy.*",
+        "terraform state rm.*",
+        "terraform state mv.*",
+        "terraform import.*",
+        "terraform workspace delete.*",
+        "sudo.*",
+        "^\\s*rm(\\s|$)",
+        "^\\s*rmdir(\\s|$)",
+        "^\\s*shred(\\s|$)",
+        "^\\s*unlink(\\s|$)",
+        "find\\s.*-delete",
+        "find\\s.*-exec\\s+rm",
+        "(curl|wget).*\\|.*(sh|bash|zsh|dash).*",
+        "git push",
+        "git push.*(--force|-f).*",
+        "git reset.*--hard.*",
+        "git clean.*-[a-zA-Z]*f.*",
+        "git branch.*-D.*"
+      ],
+      "autoAllowReadonly": true,
+      "denyByDefault": false
+    }
+  },
+  "resources": [
+    "file://README.md",
+    "file://**/*.tf",
+    "file://**/*.hcl",
+    "file://.terraform.lock.hcl",
+    "file://modules/**/*.tf",
+    "file://docs/architecture/**/*.md",
+    "file:///home/mike/.kiro/steering/architecture-principles.md",
+    "file:///home/mike/.kiro/steering/aws-standards.md",
+    "file:///home/mike/.kiro/steering/product.md",
+    "file:///home/mike/.kiro/steering/security-baselines.md",
+    "file:///home/mike/.kiro/steering/tech.md",
+    "file:///home/mike/.kiro/steering/conventional-commit-standards.md",
+    "file:///home/mike/.kiro/steering/linear-standards.md",
+    "skill://~/.kiro/skills/*/SKILL.md",
+    "file:///home/mike/.kiro/steering/shell-safety-standards.md"
+  ],
+  "hooks": [
+    {
+      "name": "agentSpawn-0",
+      "trigger": "agentSpawn",
+      "action": {
+        "type": "command",
+        "command": "{ terraform version 2>/dev/null || true; git status --short 2>/dev/null || true; } 2>/dev/null; true"
+      },
+      "timeout": 5,
+      "cacheTtlSeconds": 60
+    }
+  ],
+  "model": "auto",
+  "welcomeMessage": "Terraform / IaC agent ready",
+  "permissions": {
+    "rules": [
+      {
+        "capability": "shell",
+        "match": [
+          "terraform init",
+          "terraform plan",
+          "terraform validate",
+          "terraform fmt",
+          "terraform show",
+          "terraform output",
+          "terraform providers",
+          "terraform version",
+          "terraform state list",
+          "terraform state show",
+          "terraform graph",
+          "tflint",
+          "tfsec",
+          "trivy config",
+          "git status",
+          "git fetch",
+          "git log",
+          "git diff",
+          "git branch",
+          "git checkout",
+          "git switch",
+          "git add",
+          "git commit",
+          "git pull",
+          "git stash",
+          "git tag",
+          "git show",
+          "git rev-parse",
+          "trash-put",
+          "trash-list",
+          "trash-restore"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "shell",
+        "match": [
+          "bash",
+          "bash *",
+          "dash",
+          "dash *",
+          "find *-delete",
+          "find *-exec rm*",
+          "find *-execdir rm*",
+          "git branch *-D*",
+          "git clean *-*f*",
+          "git clean *-f*",
+          "git push",
+          "git push *",
+          "git reset *--hard*",
+          "rm",
+          "rm *",
+          "rmdir",
+          "rmdir *",
+          "sh",
+          "sh *",
+          "shred",
+          "shred *",
+          "sudo",
+          "sudo *",
+          "terraform apply*",
+          "terraform destroy*",
+          "terraform import*",
+          "terraform state mv*",
+          "terraform state rm*",
+          "terraform workspace delete*",
+          "unlink",
+          "unlink *",
+          "zsh",
+          "zsh *"
+        ],
+        "effect": "deny"
+      },
+      {
+        "capability": "fs_write",
+        "match": [
+          "**/*.tf",
+          "**/*.tf.json",
+          "**/*.hcl",
+          "modules/**",
+          "environments/**",
+          "envs/**",
+          "docs/**",
+          "README.md"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_write",
+        "match": [
+          "**/*.tfvars",
+          "**/*.tfvars.json",
+          "**/*.tfstate",
+          "**/*.tfstate.*",
+          "**/.terraform/**",
+          "**/*.tfplan"
+        ],
+        "effect": "deny"
+      },
+      {
+        "capability": "use_aws",
+        "match": [
+          "ec2:*",
+          "route53:*",
+          "route53resolver:*",
+          "lambda:*",
+          "cloudwatch:*",
+          "logs:*",
+          "ssm:*",
+          "iam:*",
+          "sts:*",
+          "s3:*"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_fetch",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_search",
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
+      }
+    ],
+    "policies": [
+      "read-only-shell"
+    ]
+  },
+  "kiroUpgrade": {
+    "revision": 2,
+    "fingerprint": "sha256:34fe20f66e606282cba51251edb7335b86f7a735fb977e1aa1650d08e3ad3a99",
+    "source": "sha256:ec2d7bbfa327234e51889b8f02647c96e7afdee9f28283b21d187f0d648bff28"
+  }
 }
