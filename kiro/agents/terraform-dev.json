@@ -3,11 +3,29 @@
   "description": "Terraform / Infrastructure-as-Code engineer for writing, reviewing, refactoring, and debugging Terraform modules, with state safety, security, and plan analysis. Implementation counterpart to the AWS architecture advisor.",
   "prompt": "file://../prompts/terraform-dev.md",
   "includeMcpJson": true,
+  "mcpServers": {
+    "aws-mcp": {
+      "command": "aws-vault",
+      "args": [
+        "exec",
+        "kiro-terraform-dev",
+        "--no-session",
+        "--",
+        "uvx",
+        "mcp-proxy-for-aws-cli@latest",
+        "https://aws-mcp.us-east-1.api.aws/mcp",
+        "--region",
+        "us-east-1",
+        "--disable-telemetry"
+      ],
+      "disabled": false
+    }
+  },
   "tools": [
+    "@aws-mcp",
     "@github",
     "@linear",
     "@snyk",
-    "aws",
     "code",
     "glob",
     "grep",
@@ -27,21 +45,6 @@
     "web_fetch"
   ],
   "toolsSettings": {
-    "aws": {
-      "allowedServices": [
-        "ec2",
-        "route53",
-        "route53resolver",
-        "lambda",
-        "cloudwatch",
-        "logs",
-        "ssm",
-        "iam",
-        "sts",
-        "s3"
-      ],
-      "autoAllowReadonly": true
-    },
     "write": {
       "allowedPaths": [
         "**/*.tf",
@@ -257,18 +260,9 @@
         "effect": "deny"
       },
       {
-        "capability": "use_aws",
+        "capability": "mcp",
         "match": [
-          "ec2:*",
-          "route53:*",
-          "route53resolver:*",
-          "lambda:*",
-          "cloudwatch:*",
-          "logs:*",
-          "ssm:*",
-          "iam:*",
-          "sts:*",
-          "s3:*"
+          "aws-mcp/*"
         ],
         "effect": "allow"
       },
@@ -288,9 +282,6 @@
         "capability": "skill",
         "effect": "allow"
       }
-    ],
-    "policies": [
-      "read-only-shell"
     ]
   },
   "kiroUpgrade": {

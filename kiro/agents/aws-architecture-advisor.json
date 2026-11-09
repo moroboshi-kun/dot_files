@@ -3,12 +3,30 @@
   "description": "AWS architecture advisor for system design, tradeoff analysis, migration planning, and cloud architecture recommendations.",
   "prompt": "file://../prompts/aws-architecture-advisor.md",
   "includeMcpJson": true,
+  "mcpServers": {
+    "aws-mcp": {
+      "command": "aws-vault",
+      "args": [
+        "exec",
+        "kiro-aws-advisor",
+        "--no-session",
+        "--",
+        "uvx",
+        "mcp-proxy-for-aws-cli@latest",
+        "https://aws-mcp.us-east-1.api.aws/mcp",
+        "--region",
+        "us-east-1",
+        "--disable-telemetry"
+      ],
+      "disabled": false
+    }
+  },
   "tools": [
+    "@aws-mcp",
     "@chrome-devtools",
     "@github",
     "@linear",
     "@snyk",
-    "aws",
     "code",
     "glob",
     "grep",
@@ -28,25 +46,6 @@
     "web_fetch"
   ],
   "toolsSettings": {
-    "aws": {
-      "allowedServices": [
-        "ec2",
-        "route53",
-        "route53resolver",
-        "lambda",
-        "cloudwatch",
-        "logs",
-        "ce",
-        "ssm",
-        "ssm-contacts",
-        "ssm-incidents",
-        "ssm-quicksetup",
-        "iam",
-        "sts",
-        "s3"
-      ],
-      "autoAllowReadonly": true
-    },
     "shell": {
       "allowedCommands": [
         "terraform plan",
@@ -176,24 +175,11 @@
         "effect": "deny"
       },
       {
-        "capability": "use_aws",
+        "capability": "mcp",
         "match": [
-          "ec2:*",
-          "route53:*",
-          "route53resolver:*",
-          "lambda:*",
-          "cloudwatch:*",
-          "logs:*",
-          "ce:*",
-          "ssm:*",
-          "ssm-contacts:*",
-          "ssm-incidents:*",
-          "ssm-quicksetup:*",
-          "iam:*",
-          "sts:*",
-          "s3:*"
+          "aws-mcp/*"
         ],
-        "effect": "allow"
+        "effect": "ask"
       },
       {
         "capability": "fs_read",
@@ -211,9 +197,6 @@
         "capability": "skill",
         "effect": "allow"
       }
-    ],
-    "policies": [
-      "read-only-shell"
     ]
   },
   "kiroUpgrade": {
