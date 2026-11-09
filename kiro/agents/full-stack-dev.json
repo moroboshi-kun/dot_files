@@ -180,9 +180,6 @@
         "capability": "skill",
         "effect": "allow"
       }
-    ],
-    "policies": [
-      "read-only-shell"
     ]
   },
   "kiroUpgrade": {

@@ -96,6 +96,7 @@
     "file://meson.build",
     "file://.clang-format",
     "file://.clang-tidy",
+    "file:///home/mike/.kiro/steering/conventional-commit-standards.md",
     "file:///home/mike/.kiro/steering/linear-standards.md",
     "skill://~/.kiro/skills/*/SKILL.md",
     "file:///home/mike/.kiro/steering/shell-safety-standards.md"
