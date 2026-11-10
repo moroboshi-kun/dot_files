@@ -12,7 +12,7 @@
         "--no-session",
         "--",
         "uvx",
-        "mcp-proxy-for-aws-cli@latest",
+        "mcp-proxy-for-aws-cli@1.8.0",
         "https://aws-mcp.us-east-1.api.aws/mcp",
         "--region",
         "us-east-1",
